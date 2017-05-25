@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "Boxydev's wiki",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
@@ -16,6 +17,7 @@
   },
   "homepage": "https://boxydev.github.io/WikiDoc/",
   "devDependencies": {
+    "buildbranch": "^2.0.0",
     "gulp": "^3.9.1",
     "gulp-markdown": "^1.2.0"
   }

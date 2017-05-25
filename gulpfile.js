@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var markdown = require('gulp-markdown');
+var buildBranch = require('buildbranch');
 
 gulp.task('markdown', function() {
     return gulp.src('src/*.md')
@@ -7,6 +8,18 @@ gulp.task('markdown', function() {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', function() {
-  // place code for your default task here
+gulp.task('build', function() {
+    buildBranch({
+        branch: 'gh-pages',
+        remote: 'origin',
+        ignore: ['.git', 'dist', 'node_modules'],
+        folder: 'dist'
+    }, function(err) {
+        if(err) {
+            throw err;
+        }
+        console.log('Published!');
+    });
 });
+
+gulp.task('default', ['markdown', 'build']);
