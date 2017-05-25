@@ -1,14 +1,25 @@
 var gulp = require('gulp');
 var markdown = require('gulp-markdown');
+var browserSync = require('browser-sync').create();
 var buildBranch = require('buildbranch');
 
 gulp.task('markdown', function() {
-    return gulp.src('src/*.md')
+    return gulp.src('src/**/*.{md,html}')
         .pipe(markdown())
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('dist'))
+        .pipe(browserSync.stream());
 });
 
-gulp.task('build', function() {
+gulp.task('dev', ['markdown'], function() {
+    browserSync.init({
+        server: './dist'
+    });
+    gulp.watch('src/**/*.{md,html}', ['markdown']);
+    gulp.watch('dist/*.html').on('change', browserSync.reload);
+    console.log('Lance le serveur');
+});
+
+gulp.task('publish', function() {
     buildBranch({
         branch: 'gh-pages',
         remote: 'origin',
@@ -22,4 +33,4 @@ gulp.task('build', function() {
     });
 });
 
-gulp.task('default', ['markdown', 'build']);
+gulp.task('default', ['markdown', 'publish']);
