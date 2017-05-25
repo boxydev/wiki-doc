@@ -1,0 +1,18 @@
+{
+  "name": "wikidoc",
+  "version": "0.1.0",
+  "description": "Boxydev's wiki",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Boxydev/WikiDoc.git"
+  },
+  "author": "Matthieu Mota",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Boxydev/WikiDoc/issues"
+  },
+  "homepage": "https://boxydev.github.io/WikiDoc/"
+}
