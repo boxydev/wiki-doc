@@ -21,6 +21,7 @@
     "browser-sync": "^2.18.12",
     "buildbranch": "^2.0.0",
     "gulp": "^3.9.1",
-    "gulp-markdown": "^1.2.0"
+    "gulp-markdown": "^1.2.0",
+    "gulp-nunjucks-render": "^2.2.1"
   }
 }
