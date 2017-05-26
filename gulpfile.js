@@ -15,7 +15,7 @@ gulp.task('markdown', function() {
     return gulp.src('src/**/*.{md,html}')
         //.pipe(markdown())
         .pipe(nunjucksRender({
-            path: 'templates',
+            path: 'src/templates',
             data: {
                 name: 'Matthieu'
             }
