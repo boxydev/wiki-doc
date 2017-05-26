@@ -4,7 +4,8 @@
   "description": "Boxydev's wiki",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gulp"
+    "build": "gulp",
+    "dev": "gulp dev"
   },
   "repository": {
     "type": "git",
@@ -17,8 +18,10 @@
   },
   "homepage": "https://boxydev.github.io/WikiDoc/",
   "devDependencies": {
+    "browser-sync": "^2.18.12",
     "buildbranch": "^2.0.0",
     "gulp": "^3.9.1",
-    "gulp-markdown": "^1.2.0"
+    "gulp-markdown": "^1.2.0",
+    "gulp-nunjucks-render": "^2.2.1"
   }
 }
