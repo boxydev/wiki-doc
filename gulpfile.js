@@ -12,7 +12,7 @@ gulp.task('css', function() {
 });
 
 gulp.task('markdown', function() {
-    return gulp.src('src/**/*.{md,html}')
+    return gulp.src('src/*.{md,html}')
         //.pipe(markdown())
         .pipe(nunjucksRender({
             path: 'src/templates',
@@ -28,7 +28,7 @@ gulp.task('dev', ['css', 'markdown'], function() {
     browserSync.init({
         server: './dist'
     });
-    gulp.watch('src/**/*.{md,html}', ['markdown']);
+    gulp.watch('src/*.{md,html}', ['markdown']);
     gulp.watch('src/assets/sass/**/*.scss', ['css']);
     gulp.watch('dist/**/*').on('change', browserSync.reload);
     console.log('Lance le serveur');
