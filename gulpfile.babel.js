@@ -69,7 +69,7 @@ gulp.task('browser-sync', ['js', 'css', 'html'], function() {
     });
 });
 
-gulp.task('publish', function() {
+gulp.task('publish', ['js', 'css', 'html'], function() {
     buildBranch({
         branch: 'gh-pages',
         remote: 'origin',
@@ -84,4 +84,4 @@ gulp.task('publish', function() {
 });
 
 gulp.task('dev', ['browser-sync', 'watch']);
-gulp.task('default', ['js', 'css', 'html', 'publish']);
+gulp.task('default', ['publish']);
