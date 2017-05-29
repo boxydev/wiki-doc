@@ -88,7 +88,7 @@ arch-chroot /mnt
 On se branche sur Paris.
 
 ```bash
-ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime.
+ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
 ```
 
 ### Les locales
