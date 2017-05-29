@@ -45,6 +45,7 @@ gulp.task('js', function() {
 })
 
 gulp.task('html', function() {
+
     return gulp.src('src/data/**/*.md')
         .pipe(metaMarkdown())
         .pipe(new Transform({
@@ -72,7 +73,7 @@ gulp.task('html', function() {
 
 gulp.task('build', ['css', 'js', 'html'])
 
-gulp.task('dev', function() {
+gulp.task('dev', ['build'], function() {
     browserSync.init({
         server: './dist'
     })
