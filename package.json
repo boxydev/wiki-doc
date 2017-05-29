@@ -26,6 +26,7 @@
     "browserify": "^14.4.0",
     "buildbranch": "^2.0.0",
     "gulp": "^3.9.1",
+    "gulp-cleanhtml": "^1.0.3",
     "gulp-headerfooter": "^1.0.3",
     "gulp-markdown": "^1.2.0",
     "gulp-rename": "^1.2.2",

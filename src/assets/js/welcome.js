@@ -20,4 +20,4 @@ class Welcome extends React.Component {
     }
 }
 
-module.exports = Welcome;
+module.exports = Welcome

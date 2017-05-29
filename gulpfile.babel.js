@@ -11,6 +11,7 @@ var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var headerfooter = require('gulp-headerfooter');
+var cleanhtml = require('gulp-cleanhtml');
 var path = require('path');
 var Transform = require('stream').Transform;
 var React = require('react');
@@ -37,7 +38,8 @@ gulp.task('css', function() {
 });
 
 gulp.task('html', function() {
-    return gulp.src('src/data/**/*.{md,html}')
+    return gulp.src('src/data/**/*.md')
+        .pipe(markdown())
         .pipe(new Transform({
             objectMode: true,
             transform: function(file, encoding, callback) {
@@ -47,10 +49,12 @@ gulp.task('html', function() {
                 callback(null, file);
             }
         }))
+        .pipe(cleanhtml())
         .pipe(headerfooter.header('./src/templates/header.html'))
         .pipe(headerfooter.footer('./src/templates/footer.html'))
         .pipe(rename(function(file) {
             file.dirname = '.'
+            file.extname = '.html'
         }))
         .pipe(gulp.dest('dist'))
         .pipe(browserSync.stream());
@@ -59,7 +63,7 @@ gulp.task('html', function() {
 gulp.task('watch', function() {
     gulp.watch('src/assets/js/**/*.js', ['js']);
     gulp.watch('src/assets/sass/**/*.scss', ['css']);
-    gulp.watch('src/**/*.{md,html}', ['html']);
+    gulp.watch('src/**/*.md', ['html']);
     gulp.watch('dist/**/*').on('change', browserSync.reload);
 });
 
