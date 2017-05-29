@@ -5,4 +5,4 @@ title: Accueil
 
 ## Installer Arch Linux
 
-Un petit rappel pour l'installation simple d'une Arch Linux <a href="./installer-arch-linux.html">par ici</a>.
+Un petit rappel pour l'installation simple d'une Arch Linux <a href="./linux/installer-arch-linux.html">par ici</a>.

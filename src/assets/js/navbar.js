@@ -2,6 +2,8 @@ import React from 'react'
 
 class Navbar extends React.Component {
     render() {
+        var baseUrl = this.props.baseUrl
+        var url = this.props.url
         return (
             <nav>
                 <div className="wrap">
@@ -11,8 +13,8 @@ class Navbar extends React.Component {
                     </a>
                     <div className="nav-list">
                         <ul className="nav-left">
-                            <li><a className={this.props.url === '/index.html' ? 'active' : ''} href="./index.html">Accueil</a></li>
-                            <li><a className={this.props.url === '/about.html' ? 'active' : ''} href="./about.html">A propos</a></li>
+                            <li><a className={url === '/index.html' ? 'active' : ''} href={baseUrl + 'index.html'}>Accueil</a></li>
+                            <li><a className={url === '/about.html' ? 'active' : ''} href={baseUrl + 'about.html'}>A propos</a></li>
                         </ul>
                         <ul className="nav-right">
                             <li><a target="_blank" href="https://github.com/Boxydev/WikiDoc">GitHub</a></li>

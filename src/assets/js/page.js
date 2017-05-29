@@ -2,11 +2,12 @@ import React from 'react'
 
 class Page extends React.Component {
     render() {
-        var url = this.props.url
+        var html = this.props.html
+        var sourceUrl = this.props.sourceUrl
         return (
             <section className="wrap page-content">
-                <a className="edit-page-link" href={"https://github.com/boxydev/WikiDoc/tree/master/" + url} target="_blank">Modifier sur GitHub</a>
-                <div dangerouslySetInnerHTML={{ __html: this.props.html }} />
+                <a className="edit-page-link" href={"https://github.com/boxydev/WikiDoc/tree/master/" + sourceUrl} target="_blank">Modifier sur GitHub</a>
+                <div dangerouslySetInnerHTML={{ __html: html }} />
             </section>
         )
     }

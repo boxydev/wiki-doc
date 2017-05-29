@@ -1,5 +1,6 @@
 'use strict'
 
+var args = require('yargs')
 var browserify = require('browserify')
 var gulp = require('gulp')
 var source = require('vinyl-source-stream')
@@ -15,9 +16,16 @@ var Transform = require('stream').Transform
 var React = require('react')
 var createReactApp = require('./src/assets/js/app.js')
 
+var prod = args.prod
+if (prod) {
+    var baseUrl = 'https://boxydev.github.io/WikiDoc/'
+} else {
+    var baseUrl = 'http://localhost:3000/'
+}
+
 gulp.task('css', function() {
     return gulp.src('src/assets/sass/**/*.scss')
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass({outputStyle: (prod) ? 'compressed' : 'nested'}).on('error', sass.logError))
         .pipe(gulp.dest('./dist/css'))
 })
 
@@ -28,9 +36,10 @@ gulp.task('js', function() {
         .bundle()
         .pipe(source('client.js'))
         .pipe(buffer())
-        /*.pipe(uglify({
-            mangle: false
-        }))*/
+        .pipe(uglify({
+            mangle: false,
+            compress: false
+        }))
         .pipe(rename('app.js'))
         .pipe(gulp.dest('./dist/js'))
 })
@@ -44,18 +53,18 @@ gulp.task('html', function() {
                 var fileContents = JSON.parse(file.contents)
                 var html = fileContents.html
                 var meta = fileContents.meta
-                var sourceUrl = path.join(path.dirname(path.relative(file.cwd, file.path)), path.basename(file.path, path.extname(file.path))) + '.md'
-                var url = '/' + path.basename(file.path)
+                var relativePath = path.join(path.dirname(path.relative(file.cwd, file.path)), path.basename(file.path, path.extname(file.path)))
+                var sourceUrl = relativePath + '.md'
+                var url = '/' + path.relative('src/data/pages/', relativePath) + '.html'
                 var htmlRender = '<!DOCTYPE html>'
-                var reactRender = createReactApp({html: html, meta: meta, sourceUrl: sourceUrl, url: url})
+                var reactRender = createReactApp({ html: html, meta: meta, baseUrl: baseUrl, sourceUrl: sourceUrl, url: url })
                 htmlRender += reactRender
                 file.contents = new Buffer(htmlRender)
                 callback(null, file)
             }
         }))
         .pipe(rename(function(file) {
-            file.dirname = '.'
-            file.extname = '.html'
+            file.dirname = './' + path.relative('pages', file.dirname)
         }))
         .pipe(gulp.dest('dist'))
         .pipe(browserSync.stream())
