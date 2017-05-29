@@ -13,8 +13,7 @@ var rename = require('gulp-rename')
 var path = require('path')
 var Transform = require('stream').Transform
 var React = require('react')
-var ReactDOMServer = require('react-dom/server')
-var App = React.createFactory(require('./src/assets/js/app'))
+var createReactApp = require('./src/assets/js/app.js')
 
 gulp.task('css', function() {
     return gulp.src('src/assets/sass/**/*.scss')
@@ -24,14 +23,15 @@ gulp.task('css', function() {
 
 gulp.task('js', function() {
     return browserify({
-            entries: './src/assets/js/app.js'
+            entries: './src/assets/js/client.js'
         }).transform('babelify', { presets: ['es2015', 'react'] })
         .bundle()
-        .pipe(source('app.js'))
+        .pipe(source('client.js'))
         .pipe(buffer())
         /*.pipe(uglify({
             mangle: false
         }))*/
+        .pipe(rename('app.js'))
         .pipe(gulp.dest('./dist/js'))
 })
 
@@ -47,7 +47,7 @@ gulp.task('html', function() {
                 var sourceUrl = path.join(path.dirname(path.relative(file.cwd, file.path)), path.basename(file.path, path.extname(file.path))) + '.md'
                 var url = '/' + path.basename(file.path)
                 var htmlRender = '<!DOCTYPE html>'
-                var reactRender = ReactDOMServer.renderToStaticMarkup(React.createElement(App, {html: html, meta: meta, sourceUrl: sourceUrl, url: url}))
+                var reactRender = createReactApp({html: html, meta: meta, sourceUrl: sourceUrl, url: url})
                 htmlRender += reactRender
                 file.contents = new Buffer(htmlRender)
                 callback(null, file)

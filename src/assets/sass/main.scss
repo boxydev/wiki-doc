@@ -28,6 +28,8 @@ a {
 .wrap {
     max-width: 960px;
     margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 nav {
@@ -35,6 +37,7 @@ nav {
     color: #fafafa;
     position: fixed;
     top: 0;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
     width: 100%;
     height: 50px;
 }
@@ -103,6 +106,7 @@ nav {
 
 .edit-page-link {
     float: right;
+    margin-top: 15px;
 }
 
 footer {
