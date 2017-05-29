@@ -19,6 +19,10 @@ a {
     &:hover {
         text-decoration: underline;
     }
+
+    > img {
+        border: 0;
+    }
 }
 
 .wrap {
@@ -44,7 +48,7 @@ nav {
 
     .nav-logo {
         height: 50px;
-        vertical-align: middle;
+        vertical-align: top;
     }
 }
 
