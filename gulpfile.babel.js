@@ -14,7 +14,13 @@ var path = require('path')
 var Transform = require('stream').Transform
 var React = require('react')
 var ReactDOMServer = require('react-dom/server')
-var App = require('./src/assets/js/app.js')
+var App = React.createFactory(require('./src/assets/js/app'))
+
+gulp.task('css', function() {
+    return gulp.src('src/assets/sass/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('./dist/css'))
+})
 
 gulp.task('js', function() {
     return browserify({
@@ -29,12 +35,6 @@ gulp.task('js', function() {
         .pipe(gulp.dest('./dist/js'))
 })
 
-gulp.task('css', function() {
-    return gulp.src('src/assets/sass/**/*.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./dist/css'))
-})
-
 gulp.task('html', function() {
     return gulp.src('src/data/**/*.md')
         .pipe(metaMarkdown())
@@ -44,9 +44,10 @@ gulp.task('html', function() {
                 var fileContents = JSON.parse(file.contents)
                 var html = fileContents.html
                 var meta = fileContents.meta
-                var url = path.join(path.dirname(path.relative(file.cwd, file.path)), path.basename(file.path, path.extname(file.path))) + '.md'
+                var sourceUrl = path.join(path.dirname(path.relative(file.cwd, file.path)), path.basename(file.path, path.extname(file.path))) + '.md'
+                var url = '/' + path.basename(file.path)
                 var htmlRender = '<!DOCTYPE html>'
-                var reactRender = ReactDOMServer.renderToStaticMarkup(React.createElement(App, {html: html, meta: meta, url: url}))
+                var reactRender = ReactDOMServer.renderToStaticMarkup(React.createElement(App, {html: html, meta: meta, sourceUrl: sourceUrl, url: url}))
                 htmlRender += reactRender
                 file.contents = new Buffer(htmlRender)
                 callback(null, file)
@@ -60,20 +61,20 @@ gulp.task('html', function() {
         .pipe(browserSync.stream())
 })
 
-gulp.task('watch', function() {
-    gulp.watch('src/assets/js/**/*.js', ['js'])
-    gulp.watch('src/assets/sass/**/*.scss', ['css'])
-    gulp.watch('src/data/**/*.md', ['html'])
+gulp.task('watch', ['browser-sync'], function() {
+    gulp.watch(['src/assets/js/**/*.js'], ['js', 'html'])
+    gulp.watch(['src/data/**/*.md'], ['html'])
+    gulp.watch(['src/assets/sass/**/*.scss'], ['css'])
     gulp.watch('dist/**/*').on('change', browserSync.reload)
 })
 
-gulp.task('browser-sync', ['js', 'css', 'html'], function() {
+gulp.task('browser-sync', ['css', 'js', 'html'], function() {
     browserSync.init({
         server: './dist'
     })
 })
 
-gulp.task('publish', ['js', 'css', 'html'], function() {
+gulp.task('publish', ['css', 'js', 'html'], function() {
     buildBranch({
         branch: 'gh-pages',
         remote: 'origin',
@@ -87,5 +88,5 @@ gulp.task('publish', ['js', 'css', 'html'], function() {
     })
 })
 
-gulp.task('dev', ['browser-sync', 'watch'])
+gulp.task('dev', ['watch'])
 gulp.task('default', ['publish'])
