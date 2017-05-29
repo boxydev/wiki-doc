@@ -1,18 +1,8 @@
 ---
-title: Page accueil
+title: Accueil
 ---
-# Mon HTML
+# Bienvenue sur la doc de Boxydev
 
-## Un texte
+## Installer Arch Linux
 
-Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum.
-
-## Du code
-
-```php
-<?php
-
-function addition(a, b) {
-    return a + b;
-}
-```
+Un petit rappel pour l'installation simple d'une Arch Linux <a href="./installer-arch-linux.html">par ici</a>.

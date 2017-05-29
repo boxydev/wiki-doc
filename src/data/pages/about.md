@@ -1,7 +1,7 @@
 ---
-title: Page a propos
+title: A propos
 ---
-# About page
+# A propos de WikiDoc
 
 WikiDoc est utilisé par Boxydev pour regrouper de la documentation à propos des technologies web.
 
