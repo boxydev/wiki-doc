@@ -70,20 +70,20 @@ gulp.task('html', function() {
         .pipe(browserSync.stream())
 })
 
-gulp.task('watch', ['browser-sync'], function() {
+gulp.task('build', ['css', 'js', 'html'])
+
+gulp.task('dev', function() {
+    browserSync.init({
+        server: './dist'
+    })
+
     gulp.watch(['src/assets/js/**/*.js'], ['js', 'html'])
     gulp.watch(['src/data/**/*.md'], ['html'])
     gulp.watch(['src/assets/sass/**/*.scss'], ['css'])
     gulp.watch('dist/**/*').on('change', browserSync.reload)
 })
 
-gulp.task('browser-sync', ['css', 'js', 'html'], function() {
-    browserSync.init({
-        server: './dist'
-    })
-})
-
-gulp.task('publish', ['css', 'js', 'html'], function() {
+gulp.task('deploy', ['build'], function() {
     buildBranch({
         branch: 'gh-pages',
         remote: 'origin',
@@ -97,5 +97,4 @@ gulp.task('publish', ['css', 'js', 'html'], function() {
     })
 })
 
-gulp.task('dev', ['watch'])
-gulp.task('default', ['publish'])
+gulp.task('default', ['build'])

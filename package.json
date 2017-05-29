@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "description": "Boxydev's wiki",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gulp --prod",
-    "dev": "gulp dev"
+    "test": "gulp build",
+    "build": "gulp build --prod",
+    "dev": "gulp dev",
+    "deploy": "gulp deploy"
   },
   "repository": {
     "type": "git",
