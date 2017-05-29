@@ -1,22 +1,20 @@
-'use strict';
+'use strict'
 
-var browserify = require('browserify');
-var gulp = require('gulp');
-var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
-var markdown = require('gulp-markdown');
-var browserSync = require('browser-sync').create();
-var buildBranch = require('buildbranch');
-var sass = require('gulp-sass');
-var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
-var headerfooter = require('gulp-headerfooter');
-var cleanhtml = require('gulp-cleanhtml');
-var path = require('path');
-var Transform = require('stream').Transform;
-var React = require('react');
-var ReactDOMServer = require('react-dom/server');
-var App = require('./src/assets/js/app.js');
+var browserify = require('browserify')
+var gulp = require('gulp')
+var source = require('vinyl-source-stream')
+var buffer = require('vinyl-buffer')
+var metaMarkdown = require('gulp-meta-marked')
+var browserSync = require('browser-sync').create()
+var buildBranch = require('buildbranch')
+var sass = require('gulp-sass')
+var uglify = require('gulp-uglify')
+var rename = require('gulp-rename')
+var path = require('path')
+var Transform = require('stream').Transform
+var React = require('react')
+var ReactDOMServer = require('react-dom/server')
+var App = require('./src/assets/js/app.js')
 
 gulp.task('js', function() {
     return browserify({
@@ -28,50 +26,52 @@ gulp.task('js', function() {
         /*.pipe(uglify({
             mangle: false
         }))*/
-        .pipe(gulp.dest('./dist/js'));
-});
+        .pipe(gulp.dest('./dist/js'))
+})
 
 gulp.task('css', function() {
     return gulp.src('src/assets/sass/**/*.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./dist/css'));
-});
+        .pipe(gulp.dest('./dist/css'))
+})
 
 gulp.task('html', function() {
     return gulp.src('src/data/**/*.md')
-        .pipe(markdown())
+        .pipe(metaMarkdown())
         .pipe(new Transform({
             objectMode: true,
             transform: function(file, encoding, callback) {
-                var html = String(file.contents)
-                var reactRender = ReactDOMServer.renderToStaticMarkup(React.createElement(App, {html: html}));
-                file.contents = new Buffer(reactRender)
-                callback(null, file);
+                var fileContents = JSON.parse(file.contents)
+                var html = fileContents.html
+                var meta = fileContents.meta
+                var url = path.join(path.dirname(path.relative(file.cwd, file.path)), path.basename(file.path, path.extname(file.path))) + '.md'
+                var htmlRender = '<!DOCTYPE html>'
+                var reactRender = ReactDOMServer.renderToStaticMarkup(React.createElement(App, {html: html, meta: meta, url: url}))
+                htmlRender += reactRender
+                file.contents = new Buffer(htmlRender)
+                callback(null, file)
             }
         }))
-        .pipe(cleanhtml())
-        .pipe(headerfooter.header('./src/templates/header.html'))
-        .pipe(headerfooter.footer('./src/templates/footer.html'))
         .pipe(rename(function(file) {
             file.dirname = '.'
             file.extname = '.html'
         }))
         .pipe(gulp.dest('dist'))
-        .pipe(browserSync.stream());
-});
+        .pipe(browserSync.stream())
+})
 
 gulp.task('watch', function() {
-    gulp.watch('src/assets/js/**/*.js', ['js']);
-    gulp.watch('src/assets/sass/**/*.scss', ['css']);
-    gulp.watch('src/**/*.md', ['html']);
-    gulp.watch('dist/**/*').on('change', browserSync.reload);
-});
+    gulp.watch('src/assets/js/**/*.js', ['js'])
+    gulp.watch('src/assets/sass/**/*.scss', ['css'])
+    gulp.watch('src/data/**/*.md', ['html'])
+    gulp.watch('dist/**/*').on('change', browserSync.reload)
+})
 
 gulp.task('browser-sync', ['js', 'css', 'html'], function() {
     browserSync.init({
         server: './dist'
-    });
-});
+    })
+})
 
 gulp.task('publish', ['js', 'css', 'html'], function() {
     buildBranch({
@@ -81,11 +81,11 @@ gulp.task('publish', ['js', 'css', 'html'], function() {
         folder: 'dist'
     }, function(err) {
         if(err) {
-            throw err;
+            throw err
         }
-        console.log('Published!');
-    });
-});
+        console.log('Published!')
+    })
+})
 
-gulp.task('dev', ['browser-sync', 'watch']);
-gulp.task('default', ['publish']);
+gulp.task('dev', ['browser-sync', 'watch'])
+gulp.task('default', ['publish'])
