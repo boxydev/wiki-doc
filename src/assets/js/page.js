@@ -5,7 +5,7 @@ class Page extends React.Component {
         var url = this.props.url
         return (
             <div className="wrap">
-                <a className="edit-page-link" href={"https://github.com/boxydev/WikiDoc/tree/master/" + url} target="_blank">Edit on GitHub</a>
+                <a className="edit-page-link" href={"https://github.com/boxydev/WikiDoc/tree/master/" + url} target="_blank">Modifier sur GitHub</a>
                 <div dangerouslySetInnerHTML={{ __html: this.props.html }} />
             </div>
         )

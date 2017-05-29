@@ -4,8 +4,8 @@ class Footer extends React.Component {
     render() {
         return (
             <footer className="wrap">
-                Copyright © 2017 Boxydev Inc.
-            </footer>    
+                Copyright © {new Date().getFullYear()} Boxydev Inc.
+            </footer>
         )
     }
 }

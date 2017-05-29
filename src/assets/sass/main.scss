@@ -1,4 +1,5 @@
 $color: #f9f9f9;
+$boxydev-color: #29a9fd;
 
 body, ul {
     margin: 0;
@@ -9,6 +10,15 @@ body {
     font-family: 'Montserrat', sans-serif;
     padding-top: 50px;
     background-color: $color;
+}
+
+a {
+    color: $boxydev-color;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 .wrap {
@@ -25,15 +35,70 @@ nav {
     height: 50px;
 }
 
-.nav-list li {
-    display: inline;
+.nav-home {
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    display: inline-block;
+    text-decoration: none!important;
+
+    .nav-logo {
+        height: 50px;
+        vertical-align: middle;
+    }
 }
 
-.nav-list li > a {
-    padding: 0 10px;
-    line-height: 50px;
-    height: 50px;
-    color: #ddd;
+.nav-list {
+    display: inline-block;
+    vertical-align: top;
+
+    .nav-left {
+        margin: 0 0 0 20px;
+    }
+
+    .nav-right {
+        float: right;
+    }
+
+    ul {
+        display: inline-block;
+    }
+
+    li {
+        display: inline;
+    
+        > a {
+            padding: 0 10px;
+            line-height: 50px;
+            height: 50px;
+            display: inline-block;
+            color: #ddd;
+            text-decoration: none;
+
+            &:hover {
+                color: #fff;
+            }
+
+            &.active {
+                position: relative;
+                color: #fafafa;
+                background: #333;
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    border-bottom: 3px solid $boxydev-color;
+                }
+            }
+        }
+    }
+}
+
+.edit-page-link {
+    float: right;
 }
 
 footer {
