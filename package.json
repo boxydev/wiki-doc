@@ -6,7 +6,7 @@
     "test": "gulp build",
     "build": "gulp build --prod",
     "dev": "gulp dev",
-    "deploy": "gulp deploy"
+    "deploy": "gulp deploy --prod"
   },
   "repository": {
     "type": "git",
