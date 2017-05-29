@@ -1,6 +1,6 @@
 'use strict'
 
-var args = require('yargs')
+var args = require('yargs').argv
 var browserify = require('browserify')
 var gulp = require('gulp')
 var source = require('vinyl-source-stream')
