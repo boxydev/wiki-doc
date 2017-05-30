@@ -20,7 +20,7 @@ class App extends React.Component {
                     <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
                     <title>{ title } - WikiDoc</title>
                     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" />
-                    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/darcula.min.css" />
+                    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/dracula.min.css" />
                     <link rel="stylesheet" href={ baseUrl + 'css/main.css' } />
                 </head>
                 <body>

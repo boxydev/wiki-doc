@@ -45,7 +45,6 @@ gulp.task('js', function() {
 })
 
 gulp.task('html', function() {
-
     return gulp.src('src/data/**/*.md')
         .pipe(metaMarkdown())
         .pipe(new Transform({
@@ -68,10 +67,14 @@ gulp.task('html', function() {
             file.dirname = './' + path.relative('pages', file.dirname)
         }))
         .pipe(gulp.dest('dist'))
-        .pipe(browserSync.stream())
 })
 
 gulp.task('build', ['css', 'js', 'html'])
+
+gulp.task('html-watch', ['html'], function (done) {
+    browserSync.reload()
+    done()
+})
 
 gulp.task('dev', ['build'], function() {
     browserSync.init({
@@ -79,9 +82,8 @@ gulp.task('dev', ['build'], function() {
     })
 
     gulp.watch(['src/assets/js/**/*.js'], ['js', 'html'])
-    gulp.watch(['src/data/**/*.md'], ['html'])
+    gulp.watch(['src/data/**/*.md'], ['html-watch'])
     gulp.watch(['src/assets/sass/**/*.scss'], ['css'])
-    gulp.watch('dist/**/*').on('change', browserSync.reload)
 })
 
 gulp.task('deploy', ['build'], function() {
