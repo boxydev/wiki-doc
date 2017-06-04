@@ -15,49 +15,53 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Mon super site avec Angular 2';
-  name = 'Matthieu Mota';
+  name = '4 fromages';
 }
 ```
 
-Je peux créer une classe Author qui me permettra de stocker plus d'informations qu'une simple String ! Une classe n'est rien d'autre qu'un simple objet JavaScript !
+## Ranger dans une classe
+
+Je peux créer une classe Pizza qui me permettra de stocker plus d'informations qu'une simple String ! Une classe n'est rien d'autre qu'un simple objet JavaScript !
 
 On en profite également pour formater notre code sur plusieurs lignes afin qu'il soit plus lisible.
 
 ```js
 import { Component } from '@angular/core';
 
-export class Author {
+export class Pizza {
   id: number;
   name: string;
-  age: number;
+  price: number;
 }
 
 @Component({
   selector: 'my-app',
   template: `
     <h1>{{title}}</h1>
-    <h2>{{author.name}}</h2>
-    <div><label>id: </label>{{author.id}}</div>
-    <div><label>name: </label>{{author.name}}</div>
-    <div><label>age: </label>{{author.age}}</div>
+    <h2>{{pizza.name}}</h2>
+    <div><label>id: </label>{{pizza.id}}</div>
+    <div><label>name: </label>{{pizza.name}}</div>
+    <div><label>price: </label>{{pizza.price}}</div>
   `,
 })
 export class AppComponent {
   title = 'Mon super site avec Angular 2';
-  author: Author = {
+  pizza: Pizza = {
     id: 1,
-    name: 'Matthieu Mota',
-    age: 25
+    name: 'Reine',
+    price: 12
   }
 }
 ```
 
-Ajoutons tout de suite un ```<input>``` nous permettant de modifier le nom de l'auteur. ```[(ngModel)]``` nous permet de lier la valeur de author.name à l'input.
+## Le module de formulaire
+
+Ajoutons tout de suite un ```<input>``` nous permettant de modifier le nom de la pizza. ```[(ngModel)]``` nous permet de lier la valeur de pizza.name à l'input.
 
 ```html
 <div>
     <label>name: </label>
-    <input [(ngModel)]="author.name" placeholder="name">
+    <input [(ngModel)]="pizza.name" placeholder="name">
 </div>
 ```
 

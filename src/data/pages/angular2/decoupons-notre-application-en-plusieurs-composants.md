@@ -8,73 +8,79 @@ Pour le moment, c'est notre classe AppComponent qui gère toute notre applicatio
 
 D'accord, allons-y, on va découper notre application.
 
-Commencons par créer un composant qui sera responsable d'afficher un auteur en particulier. Créons un fichier ```author-detail.component.ts``` dans notre dossier ```app/```. On appellera cette classe AuthorDetailComponent.
+## Créer un autre composant
+
+Commencons par créer un composant qui sera responsable d'afficher une pizza en particulier. Créons un fichier ```pizza-detail.component.ts``` dans notre dossier ```app/```. On appellera cette classe PizzaDetailComponent.
 
 ```js
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'author-detail',
+  selector: 'pizza-detail',
 })
-export class AuthorDetailComponent {
+export class PizzaDetailComponent {
 }
 ```
 
-D'ailleurs, on en profite pour refactoriser une partie du template de AppComponent dans notre nouveau composant et on peut créer aussi une propriété author.
+D'ailleurs, on en profite pour refactoriser une partie du template de AppComponent dans notre nouveau composant et on peut créer aussi une propriété pizza.
 
 ```js
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'author-detail',
+  selector: 'pizza-detail',
   template: `
-    <div *ngIf="author">
-      <h2>{{author.name}}</h2>
-      <div><label>id: </label>{{author.id}}</div>
+    <div *ngIf="pizza">
+      <h2>{{pizza.name}}</h2>
+      <div><label>id: </label>{{pizza.id}}</div>
       <div>
         <label>name: </label>
-        <input [(ngModel)]="author.name" placeholder="name">
+        <input [(ngModel)]="pizza.name" placeholder="name">
       </div>
-      <div><label>age: </label>{{author.age}}</div>
+      <div><label>price: </label>{{pizza.price}}</div>
     </div>
   `
 })
-export class AuthorDetailComponent {
-  author: Author;
+export class PizzaDetailComponent {
+  pizza: Pizza;
 }
 ```
 
-Soyons consciencieux et rangeons notre classe Author dans un dossier ```app/model/author.ts```.
+## Une classe = un fichier
+
+Soyons consciencieux et rangeons notre classe Pizza dans un dossier ```app/model/pizza.ts```.
 
 ```js
-export class Author {
+export class Pizza {
   id: number;
   name: string;
-  age: number;
+  price: number;
 }
 ```
 
-N'oublions pas d'importer la classe Author dans nos 2 composants.
+N'oublions pas d'importer la classe Pizza dans nos 2 composants.
 
 ```js
-import { Author } from './model/author';
+import { Pizza } from './model/pizza';
 ```
 
 Ok Matthieu, mais comment je fais pour lier mes 2 composants maintenant ?
 
-En fait, AuthorDetailComponent va devenir un enfant de AppComponent. On va pouvoir ajouter ce bout de code dans le template du AppComponent.
+En fait, PizzaDetailComponent va devenir un enfant de AppComponent. On va pouvoir ajouter ce bout de code dans le template du AppComponent.
 
 ```js
-<author-detail [author]="selectedAuthor"></author-detail>
+<pizza-detail [pizza]="selectedPizza"></pizza-detail>
 ```
 
-Vous remarquez l'attribut author entre crochet ? C'est ce qui va permettre d'injecter l'auteur dans le composant AuthorDetailComponent. Pour faire cela, on va devoir préciser que author est une propriété Input. On importe cette propriété à partir du noyau d'Angular et on ajoute le décorateur sur la propriété author de author-detail.
+Vous remarquez l'attribut pizza entre crochet ? C'est ce qui va permettre d'injecter la pizza dans le four... Euh pardon dans le composant PizzaDetailComponent. Pour faire cela, on va devoir préciser que pizza est une propriété Input. On importe cette propriété à partir du noyau d'Angular et on ajoute le décorateur sur la propriété pizza de pizza-detail.
 
 ```js
 import { Component, Input } from '@angular/core';
 // ...
-@Input() author: Author;
+@Input() pizza: Pizza;
 ```
+
+## Déclaration de nouveaux composants
 
 La dernière étape pour que cela fonctionne est de déclarer ce nouveau composant dans le module de notre application.
 
@@ -84,7 +90,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 
 import { AppComponent }  from './app.component';
-import { AuthorDetailComponent } from './author-detail.component';
+import { PizzaDetailComponent } from './pizza-detail.component';
 
 @NgModule({
   imports: [
@@ -93,7 +99,7 @@ import { AuthorDetailComponent } from './author-detail.component';
   ],
   declarations: [
     AppComponent,
-    AuthorDetailComponent
+    PizzaDetailComponent
   ],
   bootstrap:    [ AppComponent ]
 })
@@ -104,16 +110,16 @@ Et voici le template final dans notre AppComponent.
 
 ```js
 template: `
-    <h1>{{title}}</h1>
-    <author-detail [author]="selectedAuthor"></author-detail>
-    <h2>Les auteurs</h2>
-    <ul class="authors">
-      <li *ngFor="let author of authors"
-        [class.selected]="author === selectedAuthor"
-        (click)="onSelect(author)">
-        <span>{{author.id}}: {{author.name}}</span>
-      </li>
-    </ul>
+  <h1>{{title}}</h1>
+  <pizza-detail [pizza]="selectedPizza"></pizza-detail>
+  <h2>Les pizzas</h2>
+  <ul class="pizzas">
+    <li *ngFor="let pizza of pizzas"
+      [class.selected]="pizza === selectedPizza"
+      (click)="onSelect(pizza)">
+      <span>{{pizza.id}}: {{pizza.name}}</span>
+    </li>
+  </ul>
   `,
 ```
 
