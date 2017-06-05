@@ -271,8 +271,85 @@ Ajoutons un lien dans le template du FrontComponent pour chaque pizza.
 </div>
 ```
 
+Maintenant, offrons la possibilité à l'utilisateur de revenir en arrière quand il est sur une pizza.
+
+```js
+// ...
+template: `
+  <div *ngIf="pizza">
+    <h2>{{pizza.name}}</h2>
+    <div><label>id: </label>{{pizza.id}}</div>
+    <div>
+      <label>name: </label>
+      <input [(ngModel)]="pizza.name" placeholder="name">
+    </div>
+    <div><label>price: </label>{{pizza.price}}</div>
+    <button (click)="goBack()">Retour</button>
+  </div>
+`
+// ...
+goBack(): void {
+  this.location.back();
+}
+```
+
 ## Refactorisons nos routes dans un module Routing
 
+Alors nous pouvons maintenant gérer nos routes très facilement. Le soucis est qu'au bout d'un certain temps, notre application va grandir et nous aurons de nombreuses routes. Nous allons donc créer un module spécifique aux routes. Créons un fichier app-routing.module.ts dans le dossier app/module
 
+```js
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+import { FrontComponent }  from '../front.component';
+import { PizzasComponent } from '../pizzas.component';
+import { PizzaDetailComponent } from '../pizza-detail.component';
+
+const routes: Routes = [
+  { path: '', component: FrontComponent },
+  { path: 'pizzas', component: PizzasComponent },
+  { path: 'pizza/:id', component: PizzaDetailComponent }
+];
+
+@NgModule({
+  imports: [ RouterModule.forRoot(routes) ],
+  exports: [ RouterModule ]
+})
+export class AppRoutingModule {}
+```
+
+On peut maintenant adapter le fichier app.module.ts.
+
+```js
+import { NgModule }      from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule }   from '@angular/forms';
+
+import { AppComponent }  from './app.component';
+import { FrontComponent }  from './front.component';
+import { PizzasComponent } from './pizzas.component';
+import { PizzaDetailComponent } from './pizza-detail.component';
+
+import { PizzaService } from './service/pizza.service';
+
+import { AppRoutingModule } from './module/app-routing.module';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule
+  ],
+  declarations: [
+    AppComponent,
+    FrontComponent,
+    PizzasComponent,
+    PizzaDetailComponent
+  ],
+  providers: [PizzaService],
+  bootstrap:    [ AppComponent ]
+})
+export class AppModule { }
+```
 
 <a href="../angular2">Retour au sommaire Angular 2</a>.

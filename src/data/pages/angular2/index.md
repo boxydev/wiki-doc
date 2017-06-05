@@ -15,3 +15,4 @@ Le but de cette page est de guider le développeur pour comprendre Angular 2 en 
 7. [Créer un système de route avec Angular 2](creer-un-systeme-de-route-avec-angular-2.html)
 8. [Mieux comprendre la Promesse](../javascript/promise.html)
 9. [Mieux comprendre l'Observable](observable.html)
+10. [Le service HTTP d'Angular 2](le-service-http-d-angular-2.html)
