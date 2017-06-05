@@ -60,8 +60,8 @@ Ajoutons tout de suite un ```<input>``` nous permettant de modifier le nom de la
 
 ```html
 <div>
-    <label>name: </label>
-    <input [(ngModel)]="pizza.name" placeholder="name">
+  <label>name: </label>
+  <input [(ngModel)]="pizza.name" placeholder="name">
 </div>
 ```
 

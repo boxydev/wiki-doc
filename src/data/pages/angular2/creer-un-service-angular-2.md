@@ -8,23 +8,23 @@ Un service va nous permettre d'écrire toute la logique qui concerne la récupé
 
 ## Service Pizza
 
-Commencons par créer notre fichier pizza.service.ts.
+Commencons par créer notre fichier pizza.service.ts dans le dossier app/service.
 
 ```js
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class PizzaService {
-    getPizzas(): void {}
+  getPizzas(): void {}
 }
 ```
 
 ## Mock Pizza
 
-Vous avez remarquer que cette classe n'est pas un composant pour Angular, mais un injectable. Cela signifie pour lui que cette classe pourra dépendre d'une autre classe, comme par exemple la classe HTTP que l'on verra bientôt afin de récupérer les données sur une API. La méthode getPizzas nous permettra de récupérer nos pizzas d'une API ou d'un fichier (d'ailleurs nous allons créer mock-pizzas.ts).
+Vous avez remarquer que cette classe n'est pas un composant pour Angular, mais un injectable. Cela signifie pour lui que cette classe pourra dépendre d'une autre classe, comme par exemple la classe HTTP que l'on verra bientôt afin de récupérer les données sur une API. La méthode getPizzas nous permettra de récupérer nos pizzas d'une API ou d'un fichier (d'ailleurs nous allons créer mock-pizzas.ts dans app/mock).
 
 ```js
-import { Pizza } from './model/pizza';
+import { Pizza } from '../model/pizza';
 
 export const PIZZAS : Pizza[] = [
   { id: 1, name: 'Reine', price: 12 },
@@ -58,7 +58,20 @@ export class PizzaService {
 }
 ```
 
-On va maintenant devoir injecter ce nouveau service dans notre AppComponent. Pour faire cela, on commence par l'importer et on va l'injecter via le constructeur. En voulant faire cela, on doit avoir une erreur dans la console 'ERROR Error: No provider for PizzaService!'. Il va falloir ajouter PizzaService dans l'attribut providers de notre composant App.
+On va maintenant devoir injecter ce nouveau service dans notre AppComponent. Pour faire cela, on commence par l'importer et on va l'injecter via le constructeur.
+
+```js
+import { PizzaService } from './service/pizza.service';
+// ...
+export class AppComponent {
+  // ...
+  constructor(private pizzaService: PizzaService) { }
+  // ...
+}
+// ...
+```
+
+En voulant faire cela, on doit avoir une erreur dans la console 'ERROR Error: No provider for PizzaService!'. Il va falloir ajouter PizzaService dans l'attribut providers de notre composant App.
 
 ```js
 providers: [PizzaService]

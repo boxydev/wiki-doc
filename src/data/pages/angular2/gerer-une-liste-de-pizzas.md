@@ -8,10 +8,10 @@ On peut créer une constante qui sera un tableau contenant nos pizzas. On remarq
 
 ```js
 const PIZZAS : Pizza[] = [
-  { id: 1, name: 'Reine', age: 12 },
-  { id: 2, name: '4 fromages', age: 13 },
-  { id: 3, name: 'Orientale', age: 11 },
-  { id: 4, name: 'Cannibale', age: 9 }
+  { id: 1, name: 'Reine', price: 12 },
+  { id: 2, name: '4 fromages', price: 13 },
+  { id: 3, name: 'Orientale', price: 11 },
+  { id: 4, name: 'Cannibale', price: 9 }
 ];
 ```
 
