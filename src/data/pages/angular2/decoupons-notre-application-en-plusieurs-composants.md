@@ -4,7 +4,7 @@ title: Angular 2 - Découpons notre application en plusieurs composants
 
 # Découpons notre application en plusieurs composants
 
-Pour le moment, c'est notre classe AppComponent qui gère toute notre application. Par la suite, notre application va voir de nombreuses fonctionnalités et sera difficilement maintenable. Le concept du framework Angular 2 est d'en profiter pour découper notre application en plusieurs composants, qui seront chacuns responsable d'une tache spécifique.
+Pour le moment, c'est notre classe AppComponent qui gère toute notre application. Par la suite, notre application va avoir de nombreuses fonctionnalités et sera difficilement maintenable. Le concept du framework Angular 2 est d'en profiter pour découper notre application en plusieurs composants, qui seront chacuns responsable d'une tache spécifique.
 
 D'accord, allons-y, on va découper notre application.
 

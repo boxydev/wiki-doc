@@ -151,10 +151,19 @@ export class FrontComponent { }
 On va ajouter le nouveau composant ainsi que la nouvelle route dans notre app.module.ts.
 
 ```js
+import { FrontComponent } from './front.component';
+// ...
 {
   path: '',
   component: FrontComponent
 },
+// ...
+declarations: [
+  // ...
+  FrontComponent,
+  // ...
+],
+// ...
 ```
 
 Et voici le template de notre AppComponent.
@@ -190,7 +199,9 @@ import { PizzaService } from './service/pizza.service';
 })
 export class FrontComponent implements OnInit {
   pizzas: Pizza[] = [];
+  
   constructor(private pizzaService: PizzaService) { }
+
   ngOnInit(): void {
     this.pizzaService.getPizzas()
       .then(pizzas => this.pizzas = pizzas);
