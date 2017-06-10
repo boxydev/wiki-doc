@@ -181,4 +181,100 @@ export class PizzaDetailComponent {
 
 On va créer une fonction update dans notre pizzaService.
 
+```js
+// ...
+update(pizza: Pizza): Promise<Pizza> {
+  return this.http.put('api/pizzas/' + pizza.id, pizza)
+    .toPromise()
+    .then(() => pizza)
+}
+// ...
+```
+
+## Et pourquoi pas ajouter une pizza ?
+
+On pourrait également donner la possibilité à l'utilisateur d'ajouter une pizza. Rendons-nous dans notre PizzaComponent et ajoutons ce morceau d'HTML dans le template ainsi que la méthode add dans la classe.
+
+```js
+// ...
+template: `
+  <h2>Les pizzas</h2>
+  <ul class="pizzas">
+    <li *ngFor="let pizza of pizzas"
+      [class.selected]="pizza === selectedPizza"
+      (click)="onSelect(pizza)">
+      <span>{{pizza.id}}: {{pizza.name}}</span>
+      <button (click)="delete(pizza); $event.stopPropagation()">x</button>
+    </li>
+  </ul>
+  <div>
+    <label>Pizza:</label> <input #pizzaName />
+    <button (click)="add(pizzaName.value); pizzaName.value=''">
+      Ajouter
+    </button>
+  </div>
+  <div *ngIf="selectedPizza">
+    <h2>
+      {{selectedPizza.name | uppercase}}
+    </h2>
+    <button (click)="gotoPizza()">Voir la pizza</button>
+  </div>
+`
+// ...
+add(name: string): void {
+  if (!name) return;
+  this.pizzaService.create(name)
+    .then(pizza => this.pizzas.push(pizza));
+}
+```
+
+Maintenant, on peut ajouter la méthode create dans le service.
+
+```js
+create(name: string): Promise<Pizza> {
+  return this.http.post('api/pizzas', {name: name})
+            .toPromise()
+            .then(response => response.json().data as Pizza)
+}
+```
+
+Et voilà, maintenant, nous pouvons ajouter des pizzas.
+
+## Supprimer des pizzas
+
+Il faudrait maintenant pouvoir ajouter un bouton de suppression pour chaque pizza. Comme pour la fonctionnalité d'ajout, on va commencer par modifier notre composant Pizza. Vous remarquez le stopPropagation(), il permet de ne pas executer le onSelect du li quand on clique sur le bouton de suppression.
+
+```js
+// ...
+template: `
+  ...
+  <li *ngFor="let pizza of pizzas"
+    [class.selected]="pizza === selectedPizza"
+    (click)="onSelect(pizza)">
+    <span>{{pizza.id}}: {{pizza.name}}</span>
+    <button (click)="delete(pizza); $event.stopPropagation()">x</button>
+  </li>
+  ...
+`
+// ...
+delete(pizza: Pizza): void {
+  this.pizzaService.delete(pizza.id)
+    .then(() => {
+      this.pizzas = this.pizzas.filter(p => p !== pizza);
+    });
+}
+```
+
+Pour bien comprendre la méthode <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/filter" target="_blank">filter du prototype Array</a> en JavaScript.
+
+Et bien sûr, on va également créer la méthode delete dans notre service de Pizza.
+
+```js
+delete(id: number): Promise<void> {
+  return this.http.delete('api/pizzas/' + id)
+    .toPromise()
+    .then(() => null)
+}
+```
+
 <a href="../angular2">Retour au sommaire Angular 2</a>.

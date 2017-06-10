@@ -363,4 +363,49 @@ import { AppRoutingModule } from './module/app-routing.module';
 export class AppModule { }
 ```
 
+## Notre composant Pizza
+
+Vous vous souvenez de l'appel de notre composant PizzaDetail dans Pizza, on va pouvoir le remplacer. En effet, le PizzaDetail sert maintenant à afficher une pizza seul, pas une pizza selectionné sur le composant Pizza.
+
+Voici donc le nouveau template dans Pizza.
+
+```js
+template: `
+  <h2>Les pizzas</h2>
+  <ul class="pizzas">
+    <li *ngFor="let pizza of pizzas"
+      [class.selected]="pizza === selectedPizza"
+      (click)="onSelect(pizza)">
+      <span>{{pizza.id}}: {{pizza.name}}</span>
+      <button (click)="delete(pizza); $event.stopPropagation()">x</button>
+    </li>
+  </ul>
+  <div *ngIf="selectedPizza">
+    <h2>
+      {{selectedPizza.name | uppercase}}
+    </h2>
+    <button (click)="gotoPizza()">Voir la pizza</button>
+  </div>
+`,
+```
+
+Vous remarquez que nous avons ajouté un bouton qui va nous rediriger vers la page de la pizza selectionnée. On va implémenter cette méthode dans notre classe. Dans cette méthode, on va avoir besoin du service Router d'Angular donc on va l'importer.
+
+```js
+// ...
+import { Router } from '@angular/router';
+// ...
+export class PizzasComponent implements OnInit {
+// ...
+  constructor(
+    private router: Router,
+    private pizzaService: PizzaService) { }
+  // ...
+  gotoPizza(): void {
+    this.router.navigate(['/pizza', this.selectedPizza.id]);
+  }
+// ...
+}
+```
+
 <a href="../angular2">Retour au sommaire Angular 2</a>.
