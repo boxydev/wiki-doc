@@ -48,10 +48,10 @@ export class PizzaDetailComponent {
 
 ## Une classe = un fichier
 
-Soyons consciencieux et rangeons notre classe Pizza dans un dossier ```app/model/pizza.ts```.
+Soyons consciencieux et rangeons notre classe Pizza dans un dossier ```app/models/pizza.model.ts```. D'ailleurs, cette classe va devenir une interface (Attention, c'est du TypeScript).
 
 ```js
-export class Pizza {
+export interface Pizza {
   id: number;
   name: string;
   price: number;
@@ -61,7 +61,7 @@ export class Pizza {
 N'oublions pas d'importer la classe Pizza dans nos 2 composants.
 
 ```js
-import { Pizza } from './model/pizza';
+import { Pizza } from './models/pizza.model';
 ```
 
 Ok Matthieu, mais comment je fais pour lier mes 2 composants maintenant ?

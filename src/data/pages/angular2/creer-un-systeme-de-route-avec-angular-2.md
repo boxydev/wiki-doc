@@ -8,14 +8,14 @@ On voit qu'Angular 2 est un framework JavaScript très puissant. Mais on veut fa
 
 Et bien, pas besoin de créer d'autres fichiers HTML, Angular nous propose un module nous permettant de gérer nos routes. Une route = Un composant. Et notre composant principal AppComponent, va devenir le routeur qui redirige vers le bon composant.
 
-## Séparer notre AppComponent dans PizzaComponent
+## Séparer notre AppComponent dans PizzasComponent
 
-Pour bien nous organiser, nous allons commencer par migrer en grande partie notre AppComponent dans PizzaComponent. Ce dernier sera responsable d'afficher la liste de nos pizzas. Notre PizzaComponent doit ressembler à cela.
+Pour bien nous organiser, nous allons commencer par migrer en grande partie notre AppComponent dans PizzasComponent. Ce dernier sera responsable d'afficher la liste de nos pizzas. Notre PizzasComponent doit ressembler à cela.
 
 ```js
 import { Component, OnInit } from '@angular/core';
-import { Pizza } from './model/pizza';
-import { PizzaService } from './service/pizza.service';
+import { Pizza } from './models/pizza.model';
+import { PizzaService } from './services/pizza.service';
 
 @Component({
   selector: 'pizzas',
@@ -82,7 +82,7 @@ import { AppComponent }  from './app.component';
 import { PizzasComponent } from './pizzas.component';
 import { PizzaDetailComponent } from './pizza-detail.component';
 
-import { PizzaService } from './service/pizza.service';
+import { PizzaService } from './services/pizza.service';
 
 @NgModule({
   imports: [
@@ -137,7 +137,7 @@ template: `
 
 ## La partie front
 
-On va créer un nouveau composant qui affichera la liste de nos pizzas mais côté front pour l'utilisateur. Pour le moment, notre PizzaComponent est plus adapté pour la gestion de nos pizzas. On va donc créer un FrontComponent.
+On va créer un nouveau composant qui affichera la liste de nos pizzas mais côté front pour l'utilisateur. Pour le moment, notre PizzasComponent est plus adapté pour la gestion de nos pizzas. On va donc créer un FrontComponent.
 
 ```js
 import { Component } from '@angular/core';
@@ -185,8 +185,8 @@ On veut maintenant récupérer les pizzas dans ce composant. Pour faire cela, on
 
 ```js
 import { Component, OnInit } from '@angular/core';
-import { Pizza } from './model/pizza';
-import { PizzaService } from './service/pizza.service';
+import { Pizza } from './models/pizza.model';
+import { PizzaService } from './services/pizza.service';
 // ...
 @Component({
   // ...
@@ -224,11 +224,11 @@ Maintenant, on va modifier notre PizzaDetailComponent. On va utiliser notre serv
 
 ```js
 import { Component, Input, OnInit } from '@angular/core';
-import { Pizza } from './model/pizza';
+import { Pizza } from './models/pizza.model';
 
 import { ActivatedRoute, Params }   from '@angular/router';
 import { Location }                 from '@angular/common';
-import { PizzaService } from './service/pizza.service';
+import { PizzaService } from './services/pizza.service';
 
 import 'rxjs/add/operator/switchMap';
 
@@ -306,7 +306,7 @@ goBack(): void {
 
 ## Refactorisons nos routes dans un module Routing
 
-Alors nous pouvons maintenant gérer nos routes très facilement. Le soucis est qu'au bout d'un certain temps, notre application va grandir et nous aurons de nombreuses routes. Nous allons donc créer un module spécifique aux routes. Créons un fichier app-routing.module.ts dans le dossier app/module
+Alors nous pouvons maintenant gérer nos routes très facilement. Le soucis est qu'au bout d'un certain temps, notre application va grandir et nous aurons de nombreuses routes. Nous allons donc créer un module spécifique aux routes. Créons un fichier app-routing.module.ts dans le dossier app/modules
 
 ```js
 import { NgModule } from '@angular/core';
@@ -341,9 +341,9 @@ import { FrontComponent }  from './front.component';
 import { PizzasComponent } from './pizzas.component';
 import { PizzaDetailComponent } from './pizza-detail.component';
 
-import { PizzaService } from './service/pizza.service';
+import { PizzaService } from './services/pizza.service';
 
-import { AppRoutingModule } from './module/app-routing.module';
+import { AppRoutingModule } from './modules/app-routing.module';
 
 @NgModule({
   imports: [

@@ -8,7 +8,7 @@ Un service va nous permettre d'écrire toute la logique qui concerne la récupé
 
 ## Service Pizza
 
-Commencons par créer notre fichier pizza.service.ts dans le dossier app/service.
+Commencons par créer notre fichier pizza.service.ts dans le dossier app/services.
 
 ```js
 import { Injectable } from '@angular/core';
@@ -21,10 +21,10 @@ export class PizzaService {
 
 ## Mock Pizza
 
-Vous avez remarquer que cette classe n'est pas un composant pour Angular, mais un injectable. Cela signifie pour lui que cette classe pourra dépendre d'une autre classe, comme par exemple la classe HTTP que l'on verra bientôt afin de récupérer les données sur une API. La méthode getPizzas nous permettra de récupérer nos pizzas d'une API ou d'un fichier (d'ailleurs nous allons créer mock-pizzas.ts dans app/mock).
+Vous avez remarquer que cette classe n'est pas un composant pour Angular, mais un injectable. Cela signifie pour lui que cette classe pourra dépendre d'une autre classe, comme par exemple la classe HTTP que l'on verra bientôt afin de récupérer les données sur une API. La méthode getPizzas nous permettra de récupérer nos pizzas d'une API ou d'un fichier (d'ailleurs nous allons créer pizza.mock.ts dans app/mocks).
 
 ```js
-import { Pizza } from '../model/pizza';
+import { Pizza } from '../models/pizza.model';
 
 export const PIZZAS : Pizza[] = [
   { id: 1, name: 'Reine', price: 12 },
@@ -47,8 +47,8 @@ Voici notre service au final.
 ```js
 import { Injectable } from '@angular/core';
 
-import { Pizza } from '../model/pizza';
-import { PIZZAS } from '../mock/mock-pizza';
+import { Pizza } from '../models/pizza.model';
+import { PIZZAS } from '../mocks/pizza.mock';
 
 @Injectable()
 export class PizzaService {
@@ -61,7 +61,7 @@ export class PizzaService {
 On va maintenant devoir injecter ce nouveau service dans notre AppComponent. Pour faire cela, on commence par l'importer et on va l'injecter via le constructeur.
 
 ```js
-import { PizzaService } from './service/pizza.service';
+import { PizzaService } from './services/pizza.service';
 // ...
 export class AppComponent {
   // ...

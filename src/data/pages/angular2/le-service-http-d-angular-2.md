@@ -17,9 +17,9 @@ import { FrontComponent }  from './front.component';
 import { PizzasComponent } from './pizzas.component';
 import { PizzaDetailComponent } from './pizza-detail.component';
 
-import { PizzaService } from './service/pizza.service';
+import { PizzaService } from './services/pizza.service';
 
-import { AppRoutingModule } from './module/app-routing.module';
+import { AppRoutingModule } from './modules/app-routing.module';
 
 @NgModule({
   imports: [
@@ -53,16 +53,16 @@ import { FormsModule }   from '@angular/forms';
 import { HttpModule }    from '@angular/http';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { BoxydevFakeApi }  from './service/boxydevfakeapi.service';
+import { BoxydevFakeApi }  from './services/boxydevfakeapi.service';
 
 import { AppComponent }  from './app.component';
 import { FrontComponent }  from './front.component';
 import { PizzasComponent } from './pizzas.component';
 import { PizzaDetailComponent } from './pizza-detail.component';
 
-import { PizzaService } from './service/pizza.service';
+import { PizzaService } from './services/pizza.service';
 
-import { AppRoutingModule } from './module/app-routing.module';
+import { AppRoutingModule } from './modules/app-routing.module';
 
 @NgModule({
   imports: [
@@ -88,7 +88,7 @@ On va bien entendu créer le fichier boxydevfakeapi.service.ts dans app/service.
 
 ```js
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Pizza } from '../model/pizza';
+import { Pizza } from '../models/pizza.model';
 
 export class BoxydevFakeApi implements InMemoryDbService {
   createDb() {
@@ -113,8 +113,8 @@ import { Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Pizza } from '../model/pizza';
-import { PIZZAS } from '../mock/mock-pizza';
+import { Pizza } from '../models/pizza.model';
+import { PIZZAS } from '../mocks/pizza.mock';
 
 @Injectable()
 export class PizzaService {
