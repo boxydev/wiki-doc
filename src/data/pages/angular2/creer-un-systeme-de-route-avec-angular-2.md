@@ -20,7 +20,7 @@ import { PizzaService } from './services/pizza.service';
 @Component({
   selector: 'pizzas',
   template: `
-    <pizza-detail [pizza]="selectedPizza"></pizza-detail>
+    <pizza [pizza]="selectedPizza"></pizza>
     <h2>Les pizzas</h2>
     <ul class="pizzas">
       <li *ngFor="let pizza of pizzas"
@@ -80,7 +80,7 @@ import { FormsModule }   from '@angular/forms';
 
 import { AppComponent }  from './app.component';
 import { PizzasComponent } from './pizzas.component';
-import { PizzaDetailComponent } from './pizza-detail.component';
+import { PizzaComponent } from './pizza.component';
 
 import { PizzaService } from './services/pizza.service';
 
@@ -92,7 +92,7 @@ import { PizzaService } from './services/pizza.service';
   declarations: [
     AppComponent,
     PizzasComponent,
-    PizzaDetailComponent
+    PizzaComponent
   ],
   providers: [PizzaService],
   bootstrap:    [ AppComponent ]
@@ -216,11 +216,11 @@ Il pourrait être intéressant d'avoir des routes dynamiques du genre /pizza/ID.
 ```js
 {
   path: 'pizza/:id',
-  component: PizzaDetailComponent
+  component: PizzaComponent
 }
 ```
 
-Maintenant, on va modifier notre PizzaDetailComponent. On va utiliser notre service Pizza et pour éviter de le déclarer dans chaque composant en tant que provider, on peut le déclarer de manière globale dans le fichier app.module.ts.
+Maintenant, on va modifier notre PizzaComponent. On va utiliser notre service Pizza et pour éviter de le déclarer dans chaque composant en tant que provider, on peut le déclarer de manière globale dans le fichier app.module.ts.
 
 ```js
 import { Component, Input, OnInit } from '@angular/core';
@@ -233,7 +233,7 @@ import { PizzaService } from './services/pizza.service';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
-  selector: 'pizza-detail',
+  selector: 'pizza',
   template: `
     <div *ngIf="pizza">
       <h2>{{pizza.name}}</h2>
@@ -246,7 +246,7 @@ import 'rxjs/add/operator/switchMap';
     </div>
   `
 })
-export class PizzaDetailComponent implements OnInit {
+export class PizzaComponent implements OnInit {
   @Input() pizza: Pizza;
 
   constructor(
@@ -314,12 +314,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { FrontComponent }  from '../front.component';
 import { PizzasComponent } from '../pizzas.component';
-import { PizzaDetailComponent } from '../pizza-detail.component';
+import { PizzaComponent } from '../pizza.component';
 
 const routes: Routes = [
   { path: '', component: FrontComponent },
   { path: 'pizzas', component: PizzasComponent },
-  { path: 'pizza/:id', component: PizzaDetailComponent }
+  { path: 'pizza/:id', component: PizzaComponent }
 ];
 
 @NgModule({
@@ -339,7 +339,7 @@ import { FormsModule }   from '@angular/forms';
 import { AppComponent }  from './app.component';
 import { FrontComponent }  from './front.component';
 import { PizzasComponent } from './pizzas.component';
-import { PizzaDetailComponent } from './pizza-detail.component';
+import { PizzaComponent } from './pizza.component';
 
 import { PizzaService } from './services/pizza.service';
 
@@ -355,7 +355,7 @@ import { AppRoutingModule } from './modules/app-routing.module';
     AppComponent,
     FrontComponent,
     PizzasComponent,
-    PizzaDetailComponent
+    PizzaComponent
   ],
   providers: [PizzaService],
   bootstrap:    [ AppComponent ]
@@ -365,7 +365,7 @@ export class AppModule { }
 
 ## Notre composant Pizza
 
-Vous vous souvenez de l'appel de notre composant PizzaDetail dans Pizza, on va pouvoir le remplacer. En effet, le PizzaDetail sert maintenant à afficher une pizza seul, pas une pizza selectionné sur le composant Pizza.
+Vous vous souvenez de l'appel de notre composant Pizza dans Pizza, on va pouvoir le remplacer. En effet, le Pizza sert maintenant à afficher une pizza seul, pas une pizza selectionné sur le composant Pizza.
 
 Voici donc le nouveau template dans Pizza.
 

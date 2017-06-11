@@ -10,15 +10,15 @@ D'accord, allons-y, on va découper notre application.
 
 ## Créer un autre composant
 
-Commencons par créer un composant qui sera responsable d'afficher une pizza en particulier. Créons un fichier ```pizza-detail.component.ts``` dans notre dossier ```app/```. On appellera cette classe PizzaDetailComponent.
+Commencons par créer un composant qui sera responsable d'afficher une pizza en particulier. Créons un fichier ```pizza.component.ts``` dans notre dossier ```app/```. On appellera cette classe PizzaComponent.
 
 ```js
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'pizza-detail',
+  selector: 'pizza',
 })
-export class PizzaDetailComponent {
+export class PizzaComponent {
 }
 ```
 
@@ -28,7 +28,7 @@ D'ailleurs, on en profite pour refactoriser une partie du template de AppCompone
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'pizza-detail',
+  selector: 'pizza',
   template: `
     <div *ngIf="pizza">
       <h2>{{pizza.name}}</h2>
@@ -41,7 +41,7 @@ import { Component } from '@angular/core';
     </div>
   `
 })
-export class PizzaDetailComponent {
+export class PizzaComponent {
   pizza: Pizza;
 }
 ```
@@ -66,13 +66,13 @@ import { Pizza } from './models/pizza.model';
 
 Ok Matthieu, mais comment je fais pour lier mes 2 composants maintenant ?
 
-En fait, PizzaDetailComponent va devenir un enfant de AppComponent. On va pouvoir ajouter ce bout de code dans le template du AppComponent.
+En fait, PizzaComponent va devenir un enfant de AppComponent. On va pouvoir ajouter ce bout de code dans le template du AppComponent.
 
 ```js
-<pizza-detail [pizza]="selectedPizza"></pizza-detail>
+<pizza [pizza]="selectedPizza"></pizza>
 ```
 
-Vous remarquez l'attribut pizza entre crochet ? C'est ce qui va permettre d'injecter la pizza dans le four... Euh pardon dans le composant PizzaDetailComponent. Pour faire cela, on va devoir préciser que pizza est une propriété Input. On importe cette propriété à partir du noyau d'Angular et on ajoute le décorateur sur la propriété pizza de pizza-detail.
+Vous remarquez l'attribut pizza entre crochet ? C'est ce qui va permettre d'injecter la pizza dans le four... Euh pardon dans le composant PizzaComponent. Pour faire cela, on va devoir préciser que pizza est une propriété Input. On importe cette propriété à partir du noyau d'Angular et on ajoute le décorateur sur la propriété pizza de ```<pizza></pizza>```.
 
 ```js
 import { Component, Input } from '@angular/core';
@@ -90,7 +90,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 
 import { AppComponent }  from './app.component';
-import { PizzaDetailComponent } from './pizza-detail.component';
+import { PizzaComponent } from './pizza.component';
 
 @NgModule({
   imports: [
@@ -99,7 +99,7 @@ import { PizzaDetailComponent } from './pizza-detail.component';
   ],
   declarations: [
     AppComponent,
-    PizzaDetailComponent
+    PizzaComponent
   ],
   bootstrap:    [ AppComponent ]
 })
@@ -111,7 +111,7 @@ Et voici le template final dans notre AppComponent.
 ```js
 template: `
   <h1>{{title}}</h1>
-  <pizza-detail [pizza]="selectedPizza"></pizza-detail>
+  <pizza [pizza]="selectedPizza"></pizza>
   <h2>Les pizzas</h2>
   <ul class="pizzas">
     <li *ngFor="let pizza of pizzas"

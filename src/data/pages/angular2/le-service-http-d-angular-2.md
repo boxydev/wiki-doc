@@ -15,7 +15,7 @@ import { HttpModule }    from '@angular/http';
 import { AppComponent }  from './app.component';
 import { FrontComponent }  from './front.component';
 import { PizzasComponent } from './pizzas.component';
-import { PizzaDetailComponent } from './pizza-detail.component';
+import { PizzaComponent } from './pizza.component';
 
 import { PizzaService } from './services/pizza.service';
 
@@ -32,7 +32,7 @@ import { AppRoutingModule } from './modules/app-routing.module';
     AppComponent,
     FrontComponent,
     PizzasComponent,
-    PizzaDetailComponent
+    PizzaComponent
   ],
   providers: [PizzaService],
   bootstrap:    [ AppComponent ]
@@ -58,7 +58,7 @@ import { BoxydevFakeApi }  from './services/boxydevfakeapi.service';
 import { AppComponent }  from './app.component';
 import { FrontComponent }  from './front.component';
 import { PizzasComponent } from './pizzas.component';
-import { PizzaDetailComponent } from './pizza-detail.component';
+import { PizzaComponent } from './pizza.component';
 
 import { PizzaService } from './services/pizza.service';
 
@@ -76,7 +76,7 @@ import { AppRoutingModule } from './modules/app-routing.module';
     AppComponent,
     FrontComponent,
     PizzasComponent,
-    PizzaDetailComponent
+    PizzaComponent
   ],
   providers: [PizzaService],
   bootstrap:    [ AppComponent ]
@@ -157,7 +157,7 @@ C'est presque la même chose que getPizzas sauf qu'on récupére un objet Pizza 
 
 ## Modifier une Pizza
 
-On aimerait maintenant pouvoir modifier une pizza. On va modifier notre PizzaDetailsComponent au niveau du template et on va lui ajouter une nouvelle méthode.
+On aimerait maintenant pouvoir modifier une pizza. On va modifier notre PizzaComponent au niveau du template et on va lui ajouter une nouvelle méthode.
 
 ```js
 @Component({
@@ -169,7 +169,7 @@ On aimerait maintenant pouvoir modifier une pizza. On va modifier notre PizzaDet
   `
 })
 // ...
-export class PizzaDetailComponent {
+export class PizzaComponent {
 // ...
     save(): void {
       this.pizzaService.update(this.pizza)
