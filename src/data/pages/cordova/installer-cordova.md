@@ -12,4 +12,4 @@ On teste le bon fonctionnement de Cordova.
 cordova --version
 ```
 
-Voilà, nous avons maintenant <a href="../cordova">Cordova</a> sur notre machine.
+Voilà, nous avons maintenant [Cordova](../cordova) sur notre machine.

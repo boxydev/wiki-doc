@@ -9,3 +9,4 @@ Cordova est un outil qui va nous permettre de compiler un dossier "web", c'est-√
 1. [Installer NodeJS et NPM](installer-node-npm.html)
 2. [Installer Cordova avec NPM](installer-cordova.html)
 3. [Cr√©er un projet avec Cordova](creer-un-projet-avec-cordova.html)
+4. [La plateforme Android](la-plateforme-android.html)

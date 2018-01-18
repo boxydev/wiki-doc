@@ -13,4 +13,4 @@ node -v
 npm -v
 ```
 
-Voilà, avec npm, on est parti pour <a href="../cordova">Cordova</a>.
+Voilà, avec npm, on est parti pour [Cordova](../cordova).

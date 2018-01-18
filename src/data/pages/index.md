@@ -5,12 +5,13 @@ title: Accueil
 
 ## Installer Arch Linux
 
-Un petit rappel pour l'installation simple d'une Arch Linux <a href="./linux/installer-arch-linux.html">par ici</a>.
+Un petit rappel pour l'installation simple d'une Arch Linux [par ici](./linux/installer-arch-linux.html).
 
 ## Pour débuter avec Angular 2
 
-Comment débuter avec Angular 2 <a href="./angular2">ici</a>.
+Comment débuter avec Angular 2 [ici](./angular2).
 
-## Utiliser Cordova
+## Initiation à Cordova et Ionic
 
-Comment débuter avec <a href="./cordova">Cordova</a> pour construire une application mobile.
+Comprendre [Cordova](./cordova) pour construire une application mobile.  
+Utiliser le framework Ionic pour développer une application mobile.
