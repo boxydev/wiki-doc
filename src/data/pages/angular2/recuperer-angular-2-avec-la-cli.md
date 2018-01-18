@@ -6,7 +6,7 @@ title: Angular 2 - Récupérer Angular 2 (Avec la CLI)
 
 Angular CLI est un outil en ligne de commande qui va nous permettre de créer très facilement un projet Angular. Cela rendra le développement et la maintenance plus facile et rapide de nos applications.
 
-Bien sûr, il est évident qu'il nous faut <a href="installer-node-npm-git-et-visual-studio-code.html">Node et NPM</a>.
+Bien sûr, il est évident qu'il nous faut [Node et NPM](installer-node-npm-git-et-visual-studio-code.html).
 
 On va installer <a href="https://github.com/angular/angular-cli" target="_blank">Angular CLI</a> de manière globale via NPM.
 
@@ -27,4 +27,4 @@ cd pizzaparty
 ng serve --open
 ```
 
-<a href="../angular2">Retour au sommaire Angular 2</a>.
+[Retour au sommaire Angular 2](../angular2).

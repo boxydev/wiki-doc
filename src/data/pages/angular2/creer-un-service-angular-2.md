@@ -128,4 +128,4 @@ getPizzasSlowly(): Promise<Pizza[]> {
 }
 ```
 
-<a href="../angular2">Retour au sommaire Angular 2</a>.
+[Retour au sommaire Angular 2](../angular2).

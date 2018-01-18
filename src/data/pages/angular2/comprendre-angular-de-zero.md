@@ -120,4 +120,4 @@ npm i -g http-server
 http-server -p 1234
 ```
 
-Cette partie nous permet de comprendre comment est construit Angular 2. Pour démarrer un vrai projet, il vaut mieux démarrer avec <a href="recuperer-angular-2-avec-la-cli.html">Angular CLI</a>.
+Cette partie nous permet de comprendre comment est construit Angular 2. Pour démarrer un vrai projet, il vaut mieux démarrer avec [Angular CLI](recuperer-angular-2-avec-la-cli.html).

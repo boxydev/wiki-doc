@@ -91,4 +91,4 @@ export class AppModule { }
 
 Maintenant, cela devrait fonctionner. Essayez de changer le contenu de l'input.
 
-<a href="../angular2">Retour au sommaire Angular 2</a>.
+[Retour au sommaire Angular 2](../angular2).

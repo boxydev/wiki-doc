@@ -18,4 +18,4 @@ On en profite pour récupérer <a href="https://code.visualstudio.com/" target="
 
 En passant, si nous partons sur Visual Studio Code, nous pouvons installer le plugin Angular v4 TypeScript Snippets de John Papa.
 
-Voilà, avec npm, on est parti pour <a href="../angular2">Angular 2</a>.
+Voilà, avec npm, on est parti pour [Angular 2](../angular2).

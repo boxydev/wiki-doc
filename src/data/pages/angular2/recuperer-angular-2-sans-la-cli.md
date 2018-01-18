@@ -68,4 +68,4 @@ npm start
 
 La commande lance le transpileur en "live". Quand le code est modifié, le transpileur recompile le code TypeScript en JavaScript et rafraichit le navigateur.
 
-<a href="../angular2">Retour au sommaire Angular 2</a>.
+[Retour au sommaire Angular 2](../angular2).

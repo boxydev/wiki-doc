@@ -97,4 +97,4 @@ export class AppComponent {
 
 Essayons maintenant de cliquer sur une pizza.
 
-<a href="../angular2">Retour au sommaire Angular 2</a>.
+[Retour au sommaire Angular 2](../angular2).

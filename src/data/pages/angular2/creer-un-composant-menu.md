@@ -28,4 +28,4 @@ Il faut donc :
 
 Essayez ensuite d'intégrer les routerLink directement dans notre menu en essayant de voir si vous pouvez gérer la page qui est active avec la classe active et le routerLinkActive.
 
-<a href="../angular2">Retour au sommaire Angular 2</a>.
+[Retour au sommaire Angular 2](../angular2).
