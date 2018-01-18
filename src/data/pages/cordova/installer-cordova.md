@@ -6,6 +6,10 @@ title: Cordova - Installer Cordova
 
 On va installer <a href="https://cordova.apache.org/" target="_blank">Cordova</a>.
 
+```bash
+npm install -g cordova
+```
+
 On teste le bon fonctionnement de Cordova.
 
 ```bash
