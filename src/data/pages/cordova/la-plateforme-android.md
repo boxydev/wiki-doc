@@ -19,3 +19,18 @@ On va modifier la variable PATH via le .bash_profile ou .zshrc
 export ANDROID_HOME=${HOME}/Android/Sdk
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/tools
 ```
+
+Maintenant, on peut retourner sur notre projet et ajouter la plateforme Android :
+
+```bash
+cordova platform add android
+```
+
+On vérifie que tout est bien détecté par Cordova :
+
+```bash
+cordova requirements android
+```
+
+On peut donc ouvrir le dossier ```platforms/android``` dans Android Studio et on clique sur "Ok" pour Gradle.
+Maintenant, on doit pouvoir lancer l'application sur un émulateur et même sur un vrai téléphone Android.
