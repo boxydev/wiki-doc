@@ -53,6 +53,9 @@ gulp.task('html', function() {
                 var fileContents = JSON.parse(file.contents)
                 var html = fileContents.html
                 var meta = fileContents.meta
+                if ('undefined' === typeof meta) {
+                    meta = {title: null};
+                }
                 var relativePath = path.join(path.dirname(path.relative(file.cwd, file.path)), path.basename(file.path, path.extname(file.path)))
                 var sourceUrl = relativePath + '.md'
                 var url = '/' + path.relative('src/data/pages/', relativePath) + '.html'
