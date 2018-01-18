@@ -20,6 +20,13 @@ export ANDROID_HOME=${HOME}/Android/Sdk
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/tools
 ```
 
+Dans les dernières versions, Cordova utilise Grable pour le build des applications, il faut donc l'ajouter dans le PATH également :
+
+```bash
+# VERSION est à remplacer par 4.1 ou supérieur
+export PATH=${PATH}:/opt/android-studio/gradle/gradle-VERSION/bin
+```
+
 Maintenant, on peut retourner sur notre projet et ajouter la plateforme Android :
 
 ```bash
@@ -34,3 +41,10 @@ cordova requirements android
 
 On peut donc ouvrir le dossier ```platforms/android``` dans Android Studio et on clique sur "Ok" pour Gradle.
 Maintenant, on doit pouvoir lancer l'application sur un émulateur et même sur un vrai téléphone Android.
+
+Cordova est donc parfaitement configuré sur notre machine. Nous allons pouvoir travailler sur notre nouvelle application. Nous aimerions utiliser Angular directement. Nous pourrions le faire fonctionner dans Cordova, mais cela demanderait beaucoup de travail inutile déjà effectué par [Ionic](https://ionicframework.com/)...
+
+En effet, ce framework va nous simplifier la vie de développeur. On aura un rechargement en temps réel de l'application, un émulateur plus poussé (iPhone et Android) directement dans le navigateur.  
+Il va nous fournir de nombreux composants nous permettant de construire une application mobile (Menu "glissant" sur le côté, Menu positionné en bas, effet de défilement style mobile, etc...) ainsi que des modules Angular nous permettant de contrôler directement le téléphone.
+
+Voyons [comment installer Ionic](../ionic).

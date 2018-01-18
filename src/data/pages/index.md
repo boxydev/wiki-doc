@@ -14,4 +14,4 @@ Comment débuter avec Angular 2 [ici](./angular2).
 ## Initiation à Cordova et Ionic
 
 Comprendre [Cordova](./cordova) pour construire une application mobile.  
-Utiliser le framework Ionic pour développer une application mobile.
+Utiliser le framework [Ionic](./ionic) pour développer une application mobile.
