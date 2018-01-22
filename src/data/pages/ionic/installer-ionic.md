@@ -15,3 +15,5 @@ On vérifie que Ionic est bien installé.
 ```bash
 ionic --version
 ```
+
+On va maintenant pouvoir créer notre premier projet [Ionic](../ionic).
