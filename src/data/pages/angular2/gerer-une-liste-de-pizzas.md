@@ -78,7 +78,7 @@ On refactorise quelque peu notre code afin d'avoir une première chose qui fonct
         <label>name: </label>
         <input [(ngModel)]="selectedPizza.name" placeholder="name">
       </div>
-      <div><label>age: </label>{{selectedPizza.age}}</div>
+      <div><label>price: </label>{{selectedPizza.price}}</div>
     </div>
     ...
   `,
