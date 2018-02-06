@@ -63,4 +63,27 @@ export class AppComponent {
 
 Ici, on voit bien la variable api qui est un observable censé renvoyer des entiers. On initialise ensuite une variable datas qui est un tableau vide et qui sera censé contenir des entiers. Dans le constructeur, on initialise api qui est une instance d'un observable et qui prend en paramètre un callback avec comme paramètre un observer. L'observer va pouvoir renvoyer plusieurs données à la suite, on pourra par la suite souscrire à l'api afin de récupérer ces données une à une si on le souhaite.
 
+Voici un exemple un peu plus complexe mais qui permet de simuler une animation d'apparition des éléments.
+
+```js
+export class AppComponent implements OnInit {
+
+  private api = [{name: 'Titi'}, {name: 'Toto'}, {name: 'Tata'}];
+  private observable = Observable
+      .interval(200)
+      .take(this.api.length)
+      .map(k => this.api[k])
+  private elements = [];
+
+  constructor() { }
+
+  ngOnInit() {
+    this.observable.subscribe(
+      object => this.elements.push(object)
+    )
+  }
+
+}
+```
+
 [Retour au sommaire Angular 2](../angular2).
