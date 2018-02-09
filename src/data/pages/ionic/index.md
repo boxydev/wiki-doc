@@ -12,3 +12,4 @@ Ionic est un framework qui va nous permettre de construire rapidement et facilem
 4. [Créons la page à propos](creons-la-page-a-propos.html)
 5. [Créer un menu déroulant](creer-un-menu-deroulant.html)
 6. [Créer un menu en tabs](creer-un-menu-en-tabs.html)
+7. [Traiter le formulaire et Stockage](traiter-le-formulaire-et-stockage.html)
