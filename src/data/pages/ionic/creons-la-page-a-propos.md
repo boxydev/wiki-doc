@@ -66,4 +66,28 @@ export class HomePage {
 }
 ```
 
+Voici le contenu de la page à propos :
+
+```html
+<ion-header>
+  <ion-navbar>
+    <ion-title>A propos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <strong>Application :</strong> MeteoW
+    </ion-item>
+    <ion-item>
+      <strong>Version :</strong> 1.0.0
+    </ion-item>
+    <ion-item>
+      <strong>Description :</strong> Une application météo avec Ionic 3
+    </ion-item>
+  </ion-list>
+</ion-content>
+```
+
 On va ensuite [créer un menu déroulant](creer-un-menu-deroulant.html).

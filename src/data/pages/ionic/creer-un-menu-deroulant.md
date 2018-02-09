@@ -83,4 +83,4 @@ On peut maintenant nettoyer les fichiers ```home.html``` et ```home.ts```
 </ion-content>
 ```
 
-Maintenant, nous allons faire un second menu afin de naviguer entre la home page et la page de réglages pour la météo.
+Maintenant, nous allons faire un [second menu](creer-un-menu-en-tabs.html) afin de naviguer entre la home page et la page de réglages pour la météo.
