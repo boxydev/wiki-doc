@@ -4,10 +4,10 @@ title: Ionic - Créer un projet avec Ionic
 
 # Création d'un projet avec Ionic
 
-On peut créer un projet Ionic vierge (blank) ou alors à partir d'un template (tabs ou sidemenu).
+On peut créer un projet Ionic vierge (blank) ou alors à partir d'un template (tabs, sidemenu, super ou tutorial). Mais on va le faire SANS template, sinon c'est trop easy money :)
 
 ```bash
-ionic start monApplication tabs
+ionic start monApplication blank
 ```
 
 On peut tout de suite avoir un rendu de notre application dans le navigateur (l'option --lab est facultative mais permet un affichage sympathique de notre application) :
