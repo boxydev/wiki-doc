@@ -66,7 +66,11 @@ export class SettingsPage {
     public navParams: NavParams,
     private storage: Storage
   ) {
-    this.storage.get('city').then(city => this.city = city);
+    this.storage.get('city').then(city => {
+      if (null !== city) {
+        this.city = city;
+      }
+    });
   }
 
   save () {
@@ -74,3 +78,5 @@ export class SettingsPage {
   }
 }
 ```
+
+[Retour au sommaire Ionic](../ionic).
