@@ -19,7 +19,7 @@ Le but de cette page est de guider le développeur pour comprendre Angular 2 en 
 11. [Mieux comprendre l'Observable](observable.html)
 12. [Le service HTTP d'Angular 2](le-service-http-d-angular-2.html)
 
-## Quelques exercices pour Webforce 3
+## Quelques exercices
 
 1. [Créer un composant menu](creer-un-composant-menu.html)
 2. [Afficher nos pizzas sous forme de grille](afficher-nos-pizzas-sous-forme-de-grille.html)
