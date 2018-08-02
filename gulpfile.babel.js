@@ -17,10 +17,9 @@ var React = require('react')
 var createReactApp = require('./src/assets/js/app.js')
 
 var prod = args.prod
+var baseUrl = 'http://localhost:3000/'
 if (prod) {
-    var baseUrl = 'https://boxydev.github.io/WikiDoc/'
-} else {
-    var baseUrl = 'http://localhost:3000/'
+    baseUrl = 'https://boxydev.github.io/WikiDoc/'
 }
 
 gulp.task('css', function() {
