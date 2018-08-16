@@ -17,7 +17,7 @@ class Navbar extends React.Component {
                             <li><a className={url === '/about.html' ? 'active' : ''} href={baseUrl + 'about.html'}>A propos</a></li>
                         </ul>
                         <ul className="nav-right">
-                            <li><a target="_blank" href="https://github.com/Boxydev/WikiDoc">GitHub</a></li>
+                            <li><a target="_blank" href="https://github.com/boxydev/wiki-doc">GitHub</a></li>
                         </ul>
                     </div>
                 </div>
