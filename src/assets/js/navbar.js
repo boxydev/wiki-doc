@@ -9,7 +9,7 @@ class Navbar extends React.Component {
                 <div className="wrap">
                     <a className="nav-home" href={baseUrl + 'index.html'}>
                         <img className="nav-logo" src="https://www.boxydev.com/img/logo.png" alt="WikiDoc" />
-                        &nbsp;&nbsp;WikiDoc
+                        <span className="nav-logo-text">&nbsp;&nbsp;WikiDoc</span>
                     </a>
                     <div className="nav-list">
                         <ul className="nav-left">
