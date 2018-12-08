@@ -28,4 +28,4 @@ On peut démarrer la machine en insérant l'ISO d'Ubuntu server dans le lecteur 
 
 ![Ubuntu Server](../img/serveur/ubuntu-server.png)
 
-La machine est créée, on peut [installer Ubuntu server](../installer-ubuntu-server) maintenant.
+La machine est créée, on peut maintenant [installer Ubuntu server](installer-ubuntu-server).
