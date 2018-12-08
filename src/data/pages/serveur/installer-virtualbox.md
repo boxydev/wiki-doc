@@ -22,10 +22,10 @@ Nous allons donc prendre la version serveur d'**Ubuntu**, <a href="https://ubunt
 
 On peut ensuite créer une nouvelle machine virtuelle que l'on va nommer "Serveur". On peut lui associer 2Go de RAM. 20Go de disque dur suffira.
 
-![Virtualbox](/img/serveur/virtualbox.png)
+![Virtualbox](../img/serveur/virtualbox.png)
 
 On peut démarrer la machine en insérant l'ISO d'Ubuntu server dans le lecteur virtuel.
 
-![Ubuntu Server](/img/serveur/ubuntu-server.png)
+![Ubuntu Server](../img/serveur/ubuntu-server.png)
 
 La machine est créée, on peut [installer Ubuntu server](../installer-ubuntu-server) maintenant.
