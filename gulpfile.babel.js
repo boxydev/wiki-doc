@@ -43,6 +43,11 @@ gulp.task('js', function() {
         .pipe(gulp.dest('./dist/js'))
 })
 
+gulp.task('img', function() {
+    return gulp.src('src/assets/img/**/*')
+        .pipe(gulp.dest('./dist/img'))
+})
+
 gulp.task('html', function() {
     return gulp.src('src/data/**/*.md')
         .pipe(metaMarkdown())
@@ -71,7 +76,7 @@ gulp.task('html', function() {
         .pipe(gulp.dest('dist'))
 })
 
-gulp.task('build', ['css', 'js', 'html'])
+gulp.task('build', ['css', 'js', 'img', 'html'])
 
 gulp.task('html-watch', ['html'], function (done) {
     browserSync.reload()
