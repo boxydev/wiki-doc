@@ -24,8 +24,10 @@ On peut ensuite créer une nouvelle machine virtuelle que l'on va nommer "Serveu
 
 ![Virtualbox](../img/serveur/virtualbox.png)
 
+On modifie les paramètres de la carte réseau en **"Accès par pont"**. Cela permettra à la machine d'être considéré comme une "vraie" machine sur le réseau (192.168.x.x).
+
+![Virtualbox](../img/serveur/virtualbox-2.png)
+
 On peut démarrer la machine en insérant l'ISO d'Ubuntu server dans le lecteur virtuel.
 
-![Ubuntu Server](../img/serveur/ubuntu-server.png)
-
-La machine est créée, on peut maintenant [installer Ubuntu server](installer-ubuntu-server).
+La machine est créée, on peut maintenant [installer Ubuntu server](installer-ubuntu-server.html).
