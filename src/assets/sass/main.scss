@@ -5,12 +5,19 @@ body {
     margin: 0;
     padding: 50px 0 0;
     font-family: 'Lucida Grande', 'Montserrat', sans-serif;
+    font-size: 14px;
     line-height: 1.45;
     background-color: $color;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 32px;
 }
 
 code {
@@ -121,7 +128,7 @@ nav {
 }
 
 .page-content {
-    min-height: 900px;
+    min-height: 700px;
     padding-top: 20px;
     padding-bottom: 50px;
 
@@ -136,7 +143,7 @@ nav {
 
 .edit-page-link {
     float: right;
-    margin-top: 25px;
+    margin-top: 13px;
 }
 
 footer {
