@@ -8,6 +8,11 @@ body {
     font-size: 14px;
     line-height: 1.45;
     background-color: $color;
+
+    &.dark {
+        background-color: #222;
+        color: #fff;
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -139,6 +144,10 @@ nav {
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
         border-radius: 5px;
     }
+}
+
+#switch-dark {
+    cursor: pointer;
 }
 
 .edit-page-link {

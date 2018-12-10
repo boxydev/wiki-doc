@@ -6,7 +6,11 @@ class Page extends React.Component {
         var sourceUrl = this.props.sourceUrl
         return (
             <section className="wrap page-content">
-                <a className="edit-page-link" href={"https://github.com/boxydev/wiki-doc/tree/master/" + sourceUrl} target="_blank">Modifier sur GitHub</a>
+                <div className="edit-page-link">
+                    <span id="switch-dark">Dark mode &nbsp;&nbsp;&nbsp;</span>
+                    <a href={"https://github.com/boxydev/wiki-doc/tree/master/" + sourceUrl} target="_blank">Modifier sur GitHub</a>
+                </div>
+                
                 <div dangerouslySetInnerHTML={{ __html: html }} />
             </section>
         )
