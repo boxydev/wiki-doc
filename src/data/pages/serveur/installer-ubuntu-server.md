@@ -9,7 +9,7 @@ title: Serveur - Installation d'Ubuntu Server
 Après avoir choisi la langue de l'installateur (français évidemment), on configure notre clavier grâce aux flèches haut et bas du clavier ainsi que de la touche Entrée.
 
 A l'étape 3, nous choisissons simplement **"Installer Ubuntu"**.  
-A l'étape 4 (Configuration du réseau), tout doit être automatique grâce au DHCP.  
+A l'étape 4 (Configuration du réseau), tout doit être automatique grâce au DHCP, il serait pratique de **retenir l'adresse IP pour plus tard**.  
 A l'étape 5, nous n'avons pas de proxy.  
 A l'étape 6, le mirroir par défaut est suffisant.  
 A l'étape 7, on choisit **"Disque entier"**, on confirme l'action.  

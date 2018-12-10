@@ -9,4 +9,17 @@ D'ailleurs, il n'y a pas d'écran sur notre serveur, ni d'interface graphique. N
 
 Nous pouvons utiliser **PowerShell** pour cela, mais il existe un émulateur Unix : <a href="http://cmder.net/" target="_blank">Cmder</a>.
 
-Unix ? C'est à dire que cet outil nous propose toutes les commandes de bases que l'on peut saisir sur un serveur Linux dont la fameuse commande ```ssh```.
+<a href="https://fr.wikipedia.org/wiki/Unix" target="_blank">Unix</a> ? C'est une famille d'OS dont Linux fait partie, ainsi que macOS, mais pas Windows malheureusement.  
+Cmder nous propose ainsi pour Windows toutes les commandes de base que l'on peut saisir sur un serveur Linux dont la fameuse commande ```ssh```.
+
+On va se connecter à notre serveur et on saisit le mot de passe (Attention, la saisie n'apparait pas à l'écran pour des raisons de sécurité) :
+
+```bash
+ssh username@192.168.1.x
+```
+
+Nous sommes connectés.
+
+![SSH](../img/serveur/ssh-success.png)
+
+Avant de commencer à paniquer sans savoir quoi faire dans cette boîte noire, voyons les [commandes UNIX de base](commandes-unix.html).
