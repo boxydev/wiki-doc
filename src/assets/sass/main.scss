@@ -4,8 +4,17 @@ $boxydev-color: #29a9fd;
 body {
     margin: 0;
     padding: 50px 0 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Lucida Grande', 'Montserrat', sans-serif;
+    line-height: 1.45;
     background-color: $color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+code {
+    font-family: 'Operator Mono', monospace;
 }
 
 a {
