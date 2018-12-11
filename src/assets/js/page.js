@@ -7,7 +7,7 @@ class Page extends React.Component {
         return (
             <section className="wrap page-content">
                 <div className="edit-page-link">
-                    <span id="switch-dark">Dark mode &nbsp;&nbsp;&nbsp;</span>
+                    <span id="switch-theme">Switch to dark</span>
                     <a href={"https://github.com/boxydev/wiki-doc/tree/master/" + sourceUrl} target="_blank">Modifier sur GitHub</a>
                 </div>
                 

@@ -1,3 +1,3 @@
-import Test from './test'
+import Dark from './dark'
 
-console.log(new Test())
+new Dark()

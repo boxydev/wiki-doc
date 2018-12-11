@@ -9,9 +9,9 @@ body {
     line-height: 1.45;
     background-color: $color;
 
-    &.dark {
+    &.dark {
         background-color: #222;
-        color: #fff;
+        color: #f0f0f0;
     }
 }
 
@@ -146,8 +146,13 @@ nav {
     }
 }
 
-#switch-dark {
-    cursor: pointer;
+#switch-theme {
+    padding-right: 20px;
+
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
 }
 
 .edit-page-link {
