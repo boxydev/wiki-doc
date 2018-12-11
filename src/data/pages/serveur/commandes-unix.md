@@ -31,9 +31,11 @@ Voici une liste de commandes de base :
 - ```apt-get update``` met à jour la liste des paquets
 - ```apt-get install <name>``` permet d'installer un nouveau paquet (application ou service)
 
+Pour en savoir plus sur <a href="https://doc.ubuntu-fr.org/permissions" target="_blank">les permissions sous Linux</a>.
+
 ## Exercices
 
-Pour maitriser ces commandes, rien de tel que la pratique.
+Pour maitriser ces commandes, rien de tel que la pratique. N'hésitez pas à vous renseigner sur ```man``` afin de connaitre un peu mieux chaque commande Linux. Vous pouvez aussi vous aider de <a href="https://doc.ubuntu-fr.org/tutoriel/console_ligne_de_commande" target="_blank">la documentation officielle</a>.
 
 1. Dans quel dossier êtes-vous situés à l'arrivée sur le serveur ?
 2. Créer un dossier ```projet1``` dans votre répertoire utilisateur.
