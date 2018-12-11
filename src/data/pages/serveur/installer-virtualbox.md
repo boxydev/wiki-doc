@@ -11,6 +11,7 @@ Pour démarrer :
 - <a href="https://ubuntu-fr.org/" target="_blank">Ubuntu</a>
 - <a href="https://www.debian.org/index.fr.html" target="_blank">Debian</a>
 - <a href="https://getfedora.org/fr/" target="_blank">Fedora</a>
+- <a href="https://fr.centos.org/" target="_blank">CentOS</a>
 
 Pour l'aventure :
 
