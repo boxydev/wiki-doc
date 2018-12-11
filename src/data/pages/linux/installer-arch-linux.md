@@ -11,13 +11,13 @@ Nous nous sommes inspirés du <a href="https://wiki.archlinux.org/index.php/Inst
 On commence par aller chercher <a href="http://mir.archlinux.fr/iso/latest/" target="_blank">la dernière ISO</a>. On boot sur le live CD. Chez Boxydev, toutes les cartes mères ont un système UEFI mais on peut vérifier que l'on est bien sur ce mode.
 
 ```bash
-$ ls /sys/firmware/efi/efivars
+ls /sys/firmware/efi/efivars
 ```
 
 On vérifie que l'on est bien connecté à Internet.
 
 ```bash
-$ ping boxydev.com
+ping boxydev.com
 ```
 
 ### Partition des disques
@@ -25,13 +25,13 @@ $ ping boxydev.com
 On vérifie les disques et on choisit celui sur lequel on veut installer notre Arch.
 
 ```bash
-$ fdisk -l
+fdisk -l
 ```
 
 Une fois le disque /dev/sdX choisi, on peut utiliser cfdisk qui est plus facile, bien sûr le X est à remplacer par la lettre du disque dur concerné.
 
 ```bash
-$ cfdisk /dev/sdX
+cfdisk /dev/sdX
 ```
 
 Au plus simple, il y a 2 partitions à faire :
