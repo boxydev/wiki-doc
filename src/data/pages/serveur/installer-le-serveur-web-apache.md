@@ -64,17 +64,17 @@ On va copier/coller tout ça :
     </Directory>
 
     # Logs s'il y a un problème ou si on veut suivre le traffic du site
-    ErrorLog /home/matthieu/logs/error.log
-    CustomLog /home/matthieu/logs/access.log combined
+    ErrorLog /home/username/logs/error.log
+    CustomLog /home/username/logs/access.log combined
 </VirtualHost>
 ```
 
 On créer le dossier supersite.box via un symlink sur notre répertoire utilisateur :
 
 ```
-mkdir /home/matthieu/logs
-mkdir /home/matthieu/supersite.box
-ln -s /home/matthieu/supersite.box /var/www/supersite.box
+mkdir /home/username/logs
+mkdir /home/username/supersite.box
+ln -s /home/username/supersite.box /var/www/supersite.box
 ```
 
 On active le Vhost :
@@ -86,7 +86,7 @@ systemctl reload apache2
 
 ## Exercice
 
-On va créer un fichier index.html dans le repertoire ```/home/matthieu/supersite.box``` via ```nano``` et on se rend sur <a href="http://supersite.box" target="_blank">http://supersite.box</a>  
+On va créer un fichier index.html dans le repertoire ```/home/username/supersite.box``` via ```nano``` et on se rend sur <a href="http://supersite.box" target="_blank">http://supersite.box</a>  
 Quoi ? Cela ne fonctionne pas ? Oui, il va falloir <a href="https://www.wistee.fr/configuration-nom-domaine/modifier-fichier-hosts.html" target="_blank">modifier le fichier host de notre machine</a>.
 
 Vous l'avez compris, pour le moment, on ne peut faire que de l'HTML. Mais on souhaite [installer PHP](installer-php-et-php-fpm.html) pour faire du Wordpress, du Symfony et plein d'autres choses incroyables.
