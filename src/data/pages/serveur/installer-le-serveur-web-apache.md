@@ -74,7 +74,7 @@ On créer le dossier supersite.box via un symlink sur notre répertoire utilisat
 ```
 mkdir /home/username/logs
 mkdir /home/username/supersite.box
-ln -s /home/username/supersite.box /var/www/supersite.box
+sudo ln -s /home/username/supersite.box /var/www/supersite.box
 ```
 
 On active le Vhost :
