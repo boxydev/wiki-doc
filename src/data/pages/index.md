@@ -3,10 +3,6 @@ title: Accueil
 ---
 # Bienvenue sur la doc de Boxydev
 
-## Pour débuter avec Angular 2
-
-Comment débuter avec Angular 2 [ici](./angular2).
-
 ## Initiation à Cordova et Ionic
 
 Comprendre [Cordova](./cordova) pour construire une application mobile.  
