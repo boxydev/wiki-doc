@@ -6,7 +6,6 @@ title: Angular 2
 
 Le but de cette page est de guider le développeur pour comprendre Angular 2 en créant une application de zéro (sans la CLI).
 
-5. [Le composant de notre application Angular 2](le-composant-de-notre-application-angular-2.html)
 6. [Gérer une liste de Pizzas](gerer-une-liste-de-pizzas.html)
 7. [Découpons notre application en plusieurs composants](decoupons-notre-application-en-plusieurs-composants.html)
 8. [Créer un service Angular 2](creer-un-service-angular-2.html)
