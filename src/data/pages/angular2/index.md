@@ -6,7 +6,6 @@ title: Angular 2
 
 Le but de cette page est de guider le développeur pour comprendre Angular 2 en créant une application de zéro (sans la CLI).
 
-8. [Créer un service Angular 2](creer-un-service-angular-2.html)
 9. [Créer un système de route avec Angular 2](creer-un-systeme-de-route-avec-angular-2.html)
 10. [Mieux comprendre la Promesse](../javascript/promise.html)
 11. [Mieux comprendre l'Observable](observable.html)
