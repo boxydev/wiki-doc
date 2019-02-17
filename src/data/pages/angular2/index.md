@@ -6,9 +6,7 @@ title: Angular 2
 
 Le but de cette page est de guider le développeur pour comprendre Angular 2 en créant une application de zéro (sans la CLI).
 
-2. [Comprendre Angular de zéro](comprendre-angular-de-zero.html)
 3. [Récupérer Angular 2 (Sans la CLI)](recuperer-angular-2-sans-la-cli.html)
-4. [Récupérer Angular 2 (Avec la CLI)](recuperer-angular-2-avec-la-cli.html)
 5. [Le composant de notre application Angular 2](le-composant-de-notre-application-angular-2.html)
 6. [Gérer une liste de Pizzas](gerer-une-liste-de-pizzas.html)
 7. [Découpons notre application en plusieurs composants](decoupons-notre-application-en-plusieurs-composants.html)
